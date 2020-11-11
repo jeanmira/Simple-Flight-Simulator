@@ -9,14 +9,14 @@ int main()
 {
     ifstream arquivo;
 
-    arquivo.open("dados-decolagem.txt");
+    arquivo.open("Gerador-de-dados/dados-decolagem.txt");
 
     if (!arquivo.is_open())
     {
-        std::cout << "Arquivo nao foi aberto" << std::endl;
+        std::cout << "Arquivo nao foi aberto!" << std::endl;
         return 0;
     }
-
+    
     svs::Aviao pequeno;
     pequeno.imprimiDados();
 
