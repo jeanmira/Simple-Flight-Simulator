@@ -22,6 +22,7 @@
 
 namespace SimuladorDeVooSimples
 {
+    template <typename Type>
     class Dados
     {
     private:
@@ -35,9 +36,9 @@ namespace SimuladorDeVooSimples
     • pitot(v) onde v e a velocidade da aeronave;
     */
 
-        float giroscopio[3]; // Medição do momento
-        float altimetro;     // Altitude medida em relação ao nível do mar
-        float pitot;         // Instrumento de medição de velocidade
+        Type giroscopio[3]; // Medição do momento
+        Type altimetro;     // Altitude medida em relação ao nível do mar
+        Type pitot;         // Instrumento de medição de velocidade
 
     public:
         void setGiroscopio(float pitch, float roll, float yaw); // Método set do Giroscopio
@@ -55,6 +56,42 @@ namespace SimuladorDeVooSimples
 
         Dados(float altimetro, float pitot, float pitch, float roll, float yaw); // Contrutor que inicializa os parâmetros
         Dados();                                                                 // Contrutor padrão
+        ~Dados();                                                                // Destrutor padrão
     };
+
+    // Set o pitch,roll e o yaw de acordo com as posições dos dados
+    void Dados<Type>::setGiroscopio(float pitch, float roll, float yaw)
+    {
+        giroscopio[0] = pitch;
+        giroscopio[1] = roll;
+        giroscopio[2] = yaw;
+    }
+    void Dados<Type>::setAltimetro(float altimetro) { this->altimetro = altimetro; } // Set o altimetro recebido dos dados
+    void Dados<Type>::setPitot(float pitot) { this->pitot = pitot; }                 // Set o pitot recebido dos dados
+    void Dados<Type>::setPitch(float pitch) { giroscopio[0] = pitch; }               // Método set do pitch do Giroscopio
+    void Dados<Type>::setRoll(float roll) { giroscopio[1] = roll; }                  // Método set do roll do Giroscopio
+    void Dados<Type>::setYaw(float yaw) { giroscopio[2] = yaw; }                     // Método set do yaw do Giroscopio
+
+    float Dados<Type>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
+    float Dados<Type>::getGiroscopio_roll() { return giroscopio[1]; }  // Retorna o valor de roll
+    float Dados<Type>::getGiroscopio_yaw() { return giroscopio[2]; }   // Retorna o valor de yaw
+    float Dados<Type>::getAltimetro() { return altimetro; }            // Retorna o valor do altimetro
+    float Dados<Type>::getPitot() { return pitot; }                    // Retorna o pitot
+
+    // Contrutor que inicializa os parâmetros
+    Dados<Type>::Dados(float altimetro, float pitot, float pitch, float roll, float yaw)
+    {
+        setAltimetro(altimetro);
+        setPitot(pitot);
+        setGiroscopio(pitch, roll, yaw);
+    }
+
+    // Contrutor padrão
+    Dados<Type>::Dados()
+    {
+        setAltimetro(0);
+        setPitot(0);
+        setGiroscopio(0, 0, 0);
+    }
 } // namespace SimuladorDeVooSimples
 #endif

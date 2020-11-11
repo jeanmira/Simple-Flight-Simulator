@@ -74,11 +74,10 @@ namespace SimuladorDeVooSimples
         // Contrutor que inicializa os parâmetros
         Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador);
 
-        //Imprimi todos os dados do avião
-        void imprimirDadosAviao();
+        ~Aviao(); // Destrutor padrão
 
-        //Imprimi todos os dados dos dados
-        void imprimirDadosDados();
+        void imprimirDadosAviao(); //Imprimi todos os dados do avião
+        void imprimirDadosDados(); //Imprimi todos os dados dos dados
     };
 } // namespace SimuladorDeVooSimples
 #endif
