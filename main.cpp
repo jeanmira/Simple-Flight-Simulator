@@ -42,7 +42,6 @@ int main()
                 novo.insereDados(temporarios);
             }
         }
-        
         novo.imprimirDadosDados();
 
         arquivo.close(); // Fecha o arquivo

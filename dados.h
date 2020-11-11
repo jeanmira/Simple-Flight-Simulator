@@ -40,17 +40,19 @@ namespace SimuladorDeVooSimples
         float pitot;         // Instrumento de medição de velocidade
 
     public:
-        void setGiroscopio(float pitch, float roll, float yaw);                  // Método set do Giroscopio
-        void setAltimetro(float altimetro);                                      // Método set do Altimetro
-        void setPitot(float pitot);                                              // Método set do Pitot
-        void setPitch(float pitch);                                              // Método set do pitch do Giroscopio
-        void setRoll(float roll);                                                // Método set do roll do Giroscopio
-        void setYaw(float yaw);                                                  // Método set do yaw do Giroscopio
-        float getGiroscopio_pitch();                                             // Método get do pitch do Giroscopio
-        float getGiroscopio_roll();                                              // Método get do roll do Giroscopio
-        float getGiroscopio_yaw();                                               // Método get do yaw do Giroscopio
-        float getAltimetro();                                                    // Método get do Altimetro
-        float getPitot();                                                        // Método get do Pitot
+        void setGiroscopio(float pitch, float roll, float yaw); // Método set do Giroscopio
+        void setAltimetro(float altimetro);                     // Método set do Altimetro
+        void setPitot(float pitot);                             // Método set do Pitot
+        void setPitch(float pitch);                             // Método set do pitch do Giroscopio
+        void setRoll(float roll);                               // Método set do roll do Giroscopio
+        void setYaw(float yaw);                                 // Método set do yaw do Giroscopio
+
+        float getGiroscopio_pitch(); // Método get do pitch do Giroscopio
+        float getGiroscopio_roll();  // Método get do roll do Giroscopio
+        float getGiroscopio_yaw();   // Método get do yaw do Giroscopio
+        float getAltimetro();        // Método get do Altimetro
+        float getPitot();            // Método get do Pitot
+
         Dados(float altimetro, float pitot, float pitch, float roll, float yaw); // Contrutor que inicializa os parâmetros
         Dados();                                                                 // Contrutor padrão
     };
