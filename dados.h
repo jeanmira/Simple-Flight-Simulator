@@ -20,10 +20,6 @@
                    diminuir a velocidade para que o aviao nao estole
 */
 
-/*  
-    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
-    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-*/
 namespace SimuladorDeVooSimples
 {
     class Dados

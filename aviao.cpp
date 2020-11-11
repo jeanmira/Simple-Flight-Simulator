@@ -2,10 +2,6 @@
 
 using namespace std;
 
-/*  
-    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
-    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-*/
 namespace SimuladorDeVooSimples
 {
     //Metodos para mudar as variaveis
@@ -27,12 +23,28 @@ namespace SimuladorDeVooSimples
     float Aviao::getServoAcelerador() const { return this->servoAcelerador; }
 
     //Imprimi todos os dados do avião
-    void Aviao::imprimiDados() { cout << "Modelo: " << this->modelo << "\n"
-                                      << "Marca: " << this->marca << "\n"
-                                      << "Servo Profundor: " << this->servoProfundor << "\n"
-                                      << "Servo Leme: " << this->servoLeme << "\n"
-                                      << "Servo Aileron Esquerdo: " << this->servoAileronEs << "\n"
-                                      << "Servo Aileron Direito: " << this->servoAileronDi << "\n"
-                                      << "Servo Acelerador: " << this->servoAcelerador << "\n"; }
+    void Aviao::imprimiDados()
+    {
+        cout << "\n"
+             << "Modelo: " << this->modelo << "\n"
+             << "Marca: " << this->marca << "\n"
+             << "Servo Profundor: " << this->servoProfundor << "\n"
+             << "Servo Leme: " << this->servoLeme << "\n"
+             << "Servo Aileron Esquerdo: " << this->servoAileronEs << "\n"
+             << "Servo Aileron Direito: " << this->servoAileronDi << "\n"
+             << "Servo Acelerador: " << this->servoAcelerador << "\n"
+             << "\n";
+    }
 
+    // Contrutor que inicializa os parâmetros
+    Aviao::Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador)
+    {
+        setModelo(modelo);
+        setMarca(marca);
+        setServoProfundor(servoProfundor);
+        setServoLeme(servoLeme);
+        setServoAileronEs(servoAileronEs);
+        setServoAileronDi(servoAileronDi);
+        setServoAcelerador(servoAcelerador);
+    }
 } // namespace SimuladorDeVooSimples

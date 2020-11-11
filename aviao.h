@@ -20,10 +20,6 @@ using namespace std;
                         que possibilita o comando de toda aeronave
 */
 
-/*  
-    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
-    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-*/
 namespace SimuladorDeVooSimples
 {
     class Aviao
@@ -60,6 +56,8 @@ namespace SimuladorDeVooSimples
         // Contrutor padrão
         Aviao() : modelo{"DESCONHECIDO"}, marca{"DESCONHECIDA"}, servoProfundor{-1.0}, servoLeme{-1.0}, servoAileronEs{-1.0}, servoAileronDi{-1.0}, servoAcelerador{-1.0} {};
 
+        // Contrutor que inicializa os parâmetros
+        Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador);
         //Imprimi todos os dados do avião
         void imprimiDados();
     };
