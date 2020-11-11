@@ -53,11 +53,11 @@ namespace SimuladorDeVooSimples
         void setDadosYaw(int, float);
 
         //Metodos para saber os valores das variaveis dos Dados
-        float getDadosAltimetro(int) const;
-        float getDadosPitot(int) const;
-        float getDadosPitch(int) const;
-        float getDadosRoll(int) const;
-        float getDadosYaw(int) const;
+        float getDadosAltimetro(int);
+        float getDadosPitot(int);
+        float getDadosPitch(int);
+        float getDadosRoll(int);
+        float getDadosYaw(int);
 
         //Metodos para saber os valores das variaveis
         string getModelo();

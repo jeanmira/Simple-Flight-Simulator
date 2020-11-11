@@ -31,11 +31,11 @@ namespace SimuladorDeVooSimples
     float Aviao::getServoAcelerador() const { return this->servoAcelerador; }
 
     //Metodos para saber os valores das variaveis dos Dados
-    float Aviao::getDadosAltimetro(int i) const { return this->dadosDoModelo[i].getAltimetro(); }
-    float Aviao::getDadosPitot(int i) const { return this->dadosDoModelo[i].getPitot(); }
-    float Aviao::getDadosPitch(int i) const { return this->dadosDoModelo[i].getGiroscopio_pitch(); }
-    float Aviao::getDadosRoll(int i) const { return this->dadosDoModelo[i].getGiroscopio_roll(); }
-    float Aviao::getDadosYaw(int i) const { return this->dadosDoModelo[i].getGiroscopio_yaw(); }
+    float Aviao::getDadosAltimetro(int i) { return this->dadosDoModelo[i].getAltimetro(); }
+    float Aviao::getDadosPitot(int i) { return this->dadosDoModelo[i].getPitot(); }
+    float Aviao::getDadosPitch(int i) { return this->dadosDoModelo[i].getGiroscopio_pitch(); }
+    float Aviao::getDadosRoll(int i) { return this->dadosDoModelo[i].getGiroscopio_roll(); }
+    float Aviao::getDadosYaw(int i) { return this->dadosDoModelo[i].getGiroscopio_yaw(); }
 
     // Contrutor que inicializa os parâmetros
     Aviao::Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador)
