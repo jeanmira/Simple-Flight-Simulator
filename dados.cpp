@@ -30,12 +30,12 @@ namespace SimuladorDeVooSimples
         return giroscopio[2];
     }
     // Set o altimetro recebido dos dados
-    void Dados::setAltimetro(int altimetro)
+    void Dados::setAltimetro(float altimetro)
     {
         this->altimetro = altimetro;
     }
     // Retorna o valor do altimetro
-    int Dados::getAltimetro()
+    float Dados::getAltimetro()
     {
         return altimetro;
     }
@@ -50,4 +50,29 @@ namespace SimuladorDeVooSimples
         return pitot;
     }
 
+    Dados::Dados(float altimetro, float pitot, float pitch, float roll, float yaw)
+    {
+        setAltimetro(altimetro);
+        setPitot(pitot);
+        setGiroscopio(pitch, roll, yaw);
+    }
+    Dados::Dados()
+    {
+        setAltimetro(0);
+        setPitot(0);
+        setGiroscopio(0, 0, 0);
+    }
+
+    void Dados::setPitch(float pitch)
+    {
+        giroscopio[0] = pitch;
+    }
+    void Dados::setRoll(float roll)
+    {
+        giroscopio[1] = roll;
+    }
+    void Dados::setYaw(float yaw)
+    {
+        giroscopio[2] = yaw;
+    }
 } //namespace SimuladorDeVooSimples

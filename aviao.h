@@ -43,6 +43,21 @@ namespace SimuladorDeVooSimples
         void setServoAileronEs(float);
         void setServoAileronDi(float);
         void setServoAcelerador(float);
+        void insereDados(Dados temp);
+
+        //Metodos para mudar as variaveis dos Dados
+        void setDadosAltimetro(int, float);
+        void setDadosPitot(int, float);
+        void setDadosPitch(int, float);
+        void setDadosRoll(int, float);
+        void setDadosYaw(int, float);
+
+        //Metodos para saber os valores das variaveis dos Dados
+        float getDadosAltimetro(int) const;
+        float getDadosPitot(int) const;
+        float getDadosPitch(int) const;
+        float getDadosRoll(int) const;
+        float getDadosYaw(int) const;
 
         //Metodos para saber os valores das variaveis
         string getModelo();
@@ -58,8 +73,12 @@ namespace SimuladorDeVooSimples
 
         // Contrutor que inicializa os parâmetros
         Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador);
+
         //Imprimi todos os dados do avião
-        void imprimiDados();
+        void imprimirDadosAviao();
+
+        //Imprimi todos os dados dos dados
+        void imprimirDadosDados();
     };
 } // namespace SimuladorDeVooSimples
 #endif
