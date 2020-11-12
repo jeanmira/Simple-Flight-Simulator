@@ -53,7 +53,6 @@ namespace SimuladorDeVooSimples
     Aviao::~Aviao() {}
 
     // Métodos de incremento
-
     void Aviao::incrementaProfundor(int i) { this->servoProfundor += i; }
     void Aviao::incrementaLeme(int i) { this->servoLeme += i; }
     void Aviao::incrementaAcelerador(int i) { this->servoAcelerador += i; }
@@ -69,20 +68,24 @@ namespace SimuladorDeVooSimples
     }
 
     // Métodos de decremento
-
     void Aviao::decrementaProfundor(int i) { this->servoProfundor -= i; }
     void Aviao::decrementaLeme(int i) { this->servoLeme -= i; }
 
-    // Metodos da classe
-    void Aviao::estabilizaAltura(int i)
+    // Metodos da classe que estabiliza o avião na altura
+    void Aviao::estabilizaAltura(int i, int max, int min)
     {
-        incrementaProfundor(NIVEL);
+        incrementaProfundor(NIVEL); // Nivel de decremento do profundor
+
+        // Percorre todos os dados
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
+            // Verifica se a altura esta entre o maximo e minimo esperado
             if (getDadosAltimetro(j) < ALTURAMAXIMA && getDadosAltimetro(j) > 0)
             {
-                if (getDadosAltimetro(j) > ALTURADECOLAGEM)
+                // Verifica se a altura é maior do que a ideal(max)
+                if (getDadosAltimetro(j) > max)
                 {
+                    // Se a altura for maior ele vai reduzir
                     for (int k = j; k < (int)dadosDoModelo.size(); k++)
                     {
                         // cout << k << " " << getDadosAltimetro(k) << "\n";
@@ -90,9 +93,21 @@ namespace SimuladorDeVooSimples
                         // cout << k << " " << getDadosAltimetro(k) << "\n";
                     }
                 }
+                // Verifica se a altura é menor do que a ideal(min)
+                if (getDadosAltimetro(j) < min && min > 0)
+                {
+                    // Se a altura for menor ele vai aumentar
+                    for (int k = j; k < (int)dadosDoModelo.size(); k++)
+                    {
+                        // cout << k << " " << getDadosAltimetro(k) << "\n";
+                        dadosDoModelo[k].incrementaAltimetro(servoProfundor);
+                        // cout << k << " " << getDadosAltimetro(k) << "\n";
+                    }
+                }
             }
         }
     }
+    // Metodos da classe que estabiliza o avião na velocidade
     void Aviao::estabilizaVelocidade(int i)
     {
         incrementaAcelerador(NIVEL);
@@ -133,7 +148,7 @@ namespace SimuladorDeVooSimples
     {
         for (int i = 0; i < (int)dadosDoModelo.size(); i++)
         {
-            cout << dadosDoModelo[i].getAltimetro() << " "
+            cout << "[" << i << "] " << dadosDoModelo[i].getAltimetro() << " "
                  << dadosDoModelo[i].getPitot() << " "
                  << dadosDoModelo[i].getGiroscopio_pitch() << " "
                  << dadosDoModelo[i].getGiroscopio_roll() << " "

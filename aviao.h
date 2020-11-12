@@ -9,9 +9,6 @@
 #define NIVEL 1
 #define ALTURAMAXIMA 1270
 #define ALTURAMINIMA 0
-#define ALTURACRUZEIRO 1000
-#define ALTURADECOLAGEM 1170
-
 
 using namespace std;
 
@@ -95,7 +92,7 @@ namespace SimuladorDeVooSimples
         void decrementaLeme(int i);
 
         // Metodos da classe
-        void estabilizaAltura(int i);
+        void estabilizaAltura(int i, int max, int min);
         void estabilizaVelocidade(int i);
         void estabilizaMomentos(int i);
 
