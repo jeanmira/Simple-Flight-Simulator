@@ -6,24 +6,11 @@
 
 namespace svs = SimuladorDeVooSimples;
 
-int main()
+void leArquivos(ifstream &arquivo, svs::Aviao &novo)
 {
-    // Cria e chama o contrutor
-    /*  
-    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
-    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-    */
-    svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0);
-    novo.imprimirDadosAviao();
-
-    ifstream arquivo; // Abre o arquivo de dados de decolagem que esta na pasta Gerador-de-dados
-
-    arquivo.open("Gerador-de-dados/dados-decolagem.txt");
-
     if (!arquivo.is_open())
     {
         std::cout << "Arquivo nao foi aberto!" << std::endl;
-        return 0;
     }
     else
     {
@@ -42,15 +29,41 @@ int main()
                 novo.insereDados(temporarios);
             }
         }
-        novo.imprimirDadosDados();
-        
-        novo.estabilizaAltura(0);
-
-        novo.imprimirDadosDados();
-        
-
-        arquivo.close(); // Fecha o arquivo
     }
+    arquivo.close(); // Fecha o arquivo
+}
+
+int main()
+{
+    // Cria e chama o contrutor
+    /*  
+    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
+    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
+    */
+    svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
+    novo.imprimirDadosAviao();
+
+    //Abre os dados de decolagem e adiciona no novo avião
+    ifstream arquivoDecolagem;
+    arquivoDecolagem.open("Gerador-de-dados/dados-decolagem.txt");
+    leArquivos(arquivoDecolagem, novo);
+
+    novo.estabilizaAltura(0);  // Estabiliza a Altura
+    novo.imprimirDadosDados(); // Imprimi os dados do avião
+
+    //Abre os dados de cruzeiro e adiciona no novo avião
+    ifstream arquivoCruzeiro;
+    arquivoCruzeiro.open("Gerador-de-dados/dados-cruzeiro.txt");
+    leArquivos(arquivoCruzeiro, novo);
+
+    novo.imprimirDadosDados(); // Imprimi os dados do avião
+
+    //Abre os dados de cruzeiro e adiciona no novo avião
+    ifstream arquivoPouso;
+    arquivoPouso.open("Gerador-de-dados/dados-cruzeiro.txt");
+    leArquivos(arquivoPouso, novo);
+
+    novo.imprimirDadosDados(); // Imprimi os dados do avião
 
     return 0;
 }
