@@ -60,25 +60,37 @@ namespace SimuladorDeVooSimples
     };
 
     // Set o pitch,roll e o yaw de acordo com as posições dos dados
+    template <typename Type>
     void Dados<Type>::setGiroscopio(float pitch, float roll, float yaw)
     {
         giroscopio[0] = pitch;
         giroscopio[1] = roll;
         giroscopio[2] = yaw;
     }
+    template <typename Type>
     void Dados<Type>::setAltimetro(float altimetro) { this->altimetro = altimetro; } // Set o altimetro recebido dos dados
-    void Dados<Type>::setPitot(float pitot) { this->pitot = pitot; }                 // Set o pitot recebido dos dados
-    void Dados<Type>::setPitch(float pitch) { giroscopio[0] = pitch; }               // Método set do pitch do Giroscopio
-    void Dados<Type>::setRoll(float roll) { giroscopio[1] = roll; }                  // Método set do roll do Giroscopio
-    void Dados<Type>::setYaw(float yaw) { giroscopio[2] = yaw; }                     // Método set do yaw do Giroscopio
+    template <typename Type>
+    void Dados<Type>::setPitot(float pitot) { this->pitot = pitot; } // Set o pitot recebido dos dados
+    template <typename Type>
+    void Dados<Type>::setPitch(float pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscopio
+    template <typename Type>
+    void Dados<Type>::setRoll(float roll) { giroscopio[1] = roll; } // Método set do roll do Giroscopio
+    template <typename Type>
+    void Dados<Type>::setYaw(float yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscopio
 
+    template <typename Type>
     float Dados<Type>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
-    float Dados<Type>::getGiroscopio_roll() { return giroscopio[1]; }  // Retorna o valor de roll
-    float Dados<Type>::getGiroscopio_yaw() { return giroscopio[2]; }   // Retorna o valor de yaw
-    float Dados<Type>::getAltimetro() { return altimetro; }            // Retorna o valor do altimetro
-    float Dados<Type>::getPitot() { return pitot; }                    // Retorna o pitot
+    template <typename Type>
+    float Dados<Type>::getGiroscopio_roll() { return giroscopio[1]; } // Retorna o valor de roll
+    template <typename Type>
+    float Dados<Type>::getGiroscopio_yaw() { return giroscopio[2]; } // Retorna o valor de yaw
+    template <typename Type>
+    float Dados<Type>::getAltimetro() { return altimetro; } // Retorna o valor do altimetro
+    template <typename Type>
+    float Dados<Type>::getPitot() { return pitot; } // Retorna o pitot
 
     // Contrutor que inicializa os parâmetros
+    template <typename Type>
     Dados<Type>::Dados(float altimetro, float pitot, float pitch, float roll, float yaw)
     {
         setAltimetro(altimetro);
@@ -87,6 +99,7 @@ namespace SimuladorDeVooSimples
     }
 
     // Contrutor padrão
+    template <typename Type>
     Dados<Type>::Dados()
     {
         setAltimetro(0);

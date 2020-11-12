@@ -12,7 +12,7 @@ namespace SimuladorDeVooSimples
     void Aviao::setServoAileronEs(float servoAileronEs) { this->servoAileronEs = servoAileronEs; }
     void Aviao::setServoAileronDi(float servoAileronDi) { this->servoAileronDi = servoAileronDi; }
     void Aviao::setServoAcelerador(float servoAcelerador) { this->servoAcelerador = servoAcelerador; }
-    void Aviao::insereDados(Dados temp) { dadosDoModelo.push_back(temp); }
+    void Aviao::insereDados(Dados<float> temp) { dadosDoModelo.push_back(temp); }
 
     //Metodos para mudar as variaveis dos Dados
     void Aviao::setDadosAltimetro(int i, float altimetro) { dadosDoModelo[i].setAltimetro(altimetro); }

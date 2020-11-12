@@ -27,7 +27,7 @@ namespace SimuladorDeVooSimples
     private:
         string modelo;               // Modelo do avião
         string marca;                // Marca do avião
-        vector<Dados> dadosDoModelo; // Vetor de dados para cada avião
+        vector<Dados<float>> dadosDoModelo; // Vetor de dados para cada avião
         float servoProfundor;        // Servo motor com abertura de 0 - 180° para o profundor
         float servoLeme;             // Servo motor com abertura de 0 - 180° para o Leme
         float servoAileronEs;        // Servo motor com abertura de 0 - 180° para aileron esquerdo
@@ -43,7 +43,7 @@ namespace SimuladorDeVooSimples
         void setServoAileronEs(float);
         void setServoAileronDi(float);
         void setServoAcelerador(float);
-        void insereDados(Dados temp);
+        void insereDados(Dados<float> temp);
 
         //Metodos para mudar as variaveis dos Dados
         void setDadosAltimetro(int, float);

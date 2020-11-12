@@ -38,7 +38,7 @@ int main()
         {
             if (i != 0 && (i % 5) == 0)
             {
-                svs::Dados temporarios(numFloat[i - 5], numFloat[i - 4], numFloat[i - 3], numFloat[i - 2], numFloat[i - 1]);
+                svs::Dados<float> temporarios(numFloat[i - 5], numFloat[i - 4], numFloat[i - 3], numFloat[i - 2], numFloat[i - 1]);
                 novo.insereDados(temporarios);
             }
         }
