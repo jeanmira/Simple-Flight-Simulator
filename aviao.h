@@ -6,6 +6,13 @@
 #include <vector>
 #include "dados.h"
 
+#define NIVEL 1
+#define ALTURAMAXIMA 1270
+#define ALTURAMINIMA 0
+#define ALTURACRUZEIRO 1000
+#define ALTURADECOLAGEM 1170
+
+
 using namespace std;
 
 /*
@@ -25,14 +32,14 @@ namespace SimuladorDeVooSimples
     class Aviao
     {
     private:
-        string modelo;               // Modelo do avião
-        string marca;                // Marca do avião
+        string modelo;                      // Modelo do avião
+        string marca;                       // Marca do avião
         vector<Dados<float>> dadosDoModelo; // Vetor de dados para cada avião
-        float servoProfundor;        // Servo motor com abertura de 0 - 180° para o profundor
-        float servoLeme;             // Servo motor com abertura de 0 - 180° para o Leme
-        float servoAileronEs;        // Servo motor com abertura de 0 - 180° para aileron esquerdo
-        float servoAileronDi;        // Servo motor com abertura de 0 - 180° para aileron direito
-        float servoAcelerador;       // Servo motor com abertura de 0 - 180° para acelerador
+        float servoProfundor;               // Servo motor com abertura de 0 - 180° para o profundor
+        float servoLeme;                    // Servo motor com abertura de 0 - 180° para o Leme
+        float servoAileronEs;               // Servo motor com abertura de 0 - 180° para aileron esquerdo
+        float servoAileronDi;               // Servo motor com abertura de 0 - 180° para aileron direito
+        float servoAcelerador;              // Servo motor com abertura de 0 - 180° para acelerador
 
     public:
         //Metodos para mudar as variaveis
@@ -69,12 +76,28 @@ namespace SimuladorDeVooSimples
         float getServoAcelerador() const;
 
         // Contrutor padrão
-        Aviao() : modelo{"DESCONHECIDO"}, marca{"DESCONHECIDA"}, servoProfundor{-1.0}, servoLeme{-1.0}, servoAileronEs{-1.0}, servoAileronDi{-1.0}, servoAcelerador{-1.0} {};
+        Aviao() : modelo{"DESCONHECIDO"}, marca{"DESCONHECIDA"}, servoProfundor{0.0}, servoLeme{0.0}, servoAileronEs{0.0}, servoAileronDi{0.0}, servoAcelerador{0.0} {};
 
         // Contrutor que inicializa os parâmetros
         Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador);
 
         ~Aviao(); // Destrutor padrão
+
+        // Métodos de incremento
+        void incrementaProfundor(int i);
+        void incrementaLeme(int i);
+        void incrementaAcelerador(int i);
+        void incrementaAileronVaiEs(int i);
+        void incrementaAileronVaiDi(int i);
+
+        // Métodos de decremento
+        void decrementaProfundor(int i);
+        void decrementaLeme(int i);
+
+        // Metodos da classe
+        void estabilizaAltura(int i);
+        void estabilizaVelocidade(int i);
+        void estabilizaMomentos(int i);
 
         void imprimirDadosAviao(); //Imprimi todos os dados do avião
         void imprimirDadosDados(); //Imprimi todos os dados dos dados

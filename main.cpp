@@ -13,7 +13,7 @@ int main()
     O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
     monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
     */
-    svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", -1.0, -1.0, -1.0, -1.0, -1.0);
+    svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0);
     novo.imprimirDadosAviao();
 
     ifstream arquivo; // Abre o arquivo de dados de decolagem que esta na pasta Gerador-de-dados
@@ -43,6 +43,11 @@ int main()
             }
         }
         novo.imprimirDadosDados();
+        
+        novo.estabilizaAltura(0);
+
+        novo.imprimirDadosDados();
+        
 
         arquivo.close(); // Fecha o arquivo
     }

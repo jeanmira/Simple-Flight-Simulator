@@ -22,7 +22,7 @@
 
 namespace SimuladorDeVooSimples
 {
-    template <typename Type>
+    template <typename T>
     class Dados
     {
     private:
@@ -36,62 +36,66 @@ namespace SimuladorDeVooSimples
     • pitot(v) onde v e a velocidade da aeronave;
     */
 
-        Type giroscopio[3]; // Medição do momento
-        Type altimetro;     // Altitude medida em relação ao nível do mar
-        Type pitot;         // Instrumento de medição de velocidade
+        T giroscopio[3]; // Medição do momento
+        T altimetro;     // Altitude medida em relação ao nível do mar
+        T pitot;         // Instrumento de medição de velocidade
 
     public:
-        void setGiroscopio(float pitch, float roll, float yaw); // Método set do Giroscopio
-        void setAltimetro(float altimetro);                     // Método set do Altimetro
-        void setPitot(float pitot);                             // Método set do Pitot
-        void setPitch(float pitch);                             // Método set do pitch do Giroscopio
-        void setRoll(float roll);                               // Método set do roll do Giroscopio
-        void setYaw(float yaw);                                 // Método set do yaw do Giroscopio
+        void setGiroscopio(T pitch, T roll, T yaw); // Método set do Giroscopio
+        void setAltimetro(T altimetro);             // Método set do Altimetro
+        void setPitot(T pitot);                     // Método set do Pitot
+        void setPitch(T pitch);                     // Método set do pitch do Giroscopio
+        void setRoll(T roll);                       // Método set do roll do Giroscopio
+        void setYaw(T yaw);                         // Método set do yaw do Giroscopio
 
-        float getGiroscopio_pitch(); // Método get do pitch do Giroscopio
-        float getGiroscopio_roll();  // Método get do roll do Giroscopio
-        float getGiroscopio_yaw();   // Método get do yaw do Giroscopio
-        float getAltimetro();        // Método get do Altimetro
-        float getPitot();            // Método get do Pitot
+        T getGiroscopio_pitch(); // Método get do pitch do Giroscopio
+        T getGiroscopio_roll();  // Método get do roll do Giroscopio
+        T getGiroscopio_yaw();   // Método get do yaw do Giroscopio
+        T getAltimetro();        // Método get do Altimetro
+        T getPitot();            // Método get do Pitot
 
-        Dados(float altimetro, float pitot, float pitch, float roll, float yaw); // Contrutor que inicializa os parâmetros
-        Dados();                                                                 // Contrutor padrão
-        ~Dados();                                                                // Destrutor padrão
+        Dados(T altimetro, T pitot, T pitch, T roll, T yaw); // Contrutor que inicializa os parâmetros
+        Dados();                                             // Contrutor padrão
+        ~Dados();                                            // Destrutor padrão
+
+        // Métodos decrementos
+        void decrementaAltimetro(T i);
+        void decrementaPitot(T i);
     };
 
     // Set o pitch,roll e o yaw de acordo com as posições dos dados
-    template <typename Type>
-    void Dados<Type>::setGiroscopio(float pitch, float roll, float yaw)
+    template <typename T>
+    void Dados<T>::setGiroscopio(T pitch, T roll, T yaw)
     {
         giroscopio[0] = pitch;
         giroscopio[1] = roll;
         giroscopio[2] = yaw;
     }
-    template <typename Type>
-    void Dados<Type>::setAltimetro(float altimetro) { this->altimetro = altimetro; } // Set o altimetro recebido dos dados
-    template <typename Type>
-    void Dados<Type>::setPitot(float pitot) { this->pitot = pitot; } // Set o pitot recebido dos dados
-    template <typename Type>
-    void Dados<Type>::setPitch(float pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscopio
-    template <typename Type>
-    void Dados<Type>::setRoll(float roll) { giroscopio[1] = roll; } // Método set do roll do Giroscopio
-    template <typename Type>
-    void Dados<Type>::setYaw(float yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscopio
+    template <typename T>
+    void Dados<T>::setAltimetro(T altimetro) { this->altimetro = altimetro; } // Set o altimetro recebido dos dados
+    template <typename T>
+    void Dados<T>::setPitot(T pitot) { this->pitot = pitot; } // Set o pitot recebido dos dados
+    template <typename T>
+    void Dados<T>::setPitch(T pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscopio
+    template <typename T>
+    void Dados<T>::setRoll(T roll) { giroscopio[1] = roll; } // Método set do roll do Giroscopio
+    template <typename T>
+    void Dados<T>::setYaw(T yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscopio
 
-    template <typename Type>
-    float Dados<Type>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
-    template <typename Type>
-    float Dados<Type>::getGiroscopio_roll() { return giroscopio[1]; } // Retorna o valor de roll
-    template <typename Type>
-    float Dados<Type>::getGiroscopio_yaw() { return giroscopio[2]; } // Retorna o valor de yaw
-    template <typename Type>
-    float Dados<Type>::getAltimetro() { return altimetro; } // Retorna o valor do altimetro
-    template <typename Type>
-    float Dados<Type>::getPitot() { return pitot; } // Retorna o pitot
+    template <typename T>
+    T Dados<T>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
+    template <typename T>
+    T Dados<T>::getGiroscopio_roll() { return giroscopio[1]; } // Retorna o valor de roll
+    template <typename T>
+    T Dados<T>::getGiroscopio_yaw() { return giroscopio[2]; } // Retorna o valor de yaw
+    template <typename T>
+    T Dados<T>::getAltimetro() { return altimetro; } // Retorna o valor do altimetro
+    template <typename T>
+    T Dados<T>::getPitot() { return pitot; } // Retorna o pitot
 
     // Contrutor que inicializa os parâmetros
-    template <typename Type>
-    Dados<Type>::Dados(float altimetro, float pitot, float pitch, float roll, float yaw)
+    template <typename T>
+    Dados<T>::Dados(T altimetro, T pitot, T pitch, T roll, T yaw)
     {
         setAltimetro(altimetro);
         setPitot(pitot);
@@ -99,12 +103,23 @@ namespace SimuladorDeVooSimples
     }
 
     // Contrutor padrão
-    template <typename Type>
-    Dados<Type>::Dados()
+    template <typename T>
+    Dados<T>::Dados()
     {
         setAltimetro(0);
         setPitot(0);
         setGiroscopio(0, 0, 0);
     }
+
+    // Destrutor padrão
+    template <typename T>
+    Dados<T>::~Dados() {}
+
+    // Métodos decrementos
+    template <typename T>
+    void Dados<T>::decrementaAltimetro(T profundor) { altimetro -= 5 * profundor; }
+    template <typename T>
+    void Dados<T>::decrementaPitot(T pitot) { pitot -= 0.401 * pitot; }
+
 } // namespace SimuladorDeVooSimples
 #endif

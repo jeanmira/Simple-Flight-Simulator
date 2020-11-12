@@ -49,6 +49,71 @@ namespace SimuladorDeVooSimples
         setServoAcelerador(servoAcelerador);
     }
 
+    // Destrutor padrão
+    Aviao::~Aviao() {}
+
+    // Métodos de incremento
+
+    void Aviao::incrementaProfundor(int i) { this->servoProfundor += i; }
+    void Aviao::incrementaLeme(int i) { this->servoLeme += i; }
+    void Aviao::incrementaAcelerador(int i) { this->servoAcelerador += i; }
+    void Aviao::incrementaAileronVaiEs(int i)
+    {
+        this->servoAileronDi += i;
+        this->servoAileronEs -= i;
+    }
+    void Aviao::incrementaAileronVaiDi(int i)
+    {
+        this->servoAileronDi -= i;
+        this->servoAileronEs += i;
+    }
+
+    // Métodos de decremento
+
+    void Aviao::decrementaProfundor(int i) { this->servoProfundor -= i; }
+    void Aviao::decrementaLeme(int i) { this->servoLeme -= i; }
+
+    // Metodos da classe
+    void Aviao::estabilizaAltura(int i)
+    {
+        incrementaProfundor(NIVEL);
+        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        {
+            if (getDadosAltimetro(j) < ALTURAMAXIMA && getDadosAltimetro(j) > 0)
+            {
+                if (getDadosAltimetro(j) > ALTURADECOLAGEM)
+                {
+                    for (int k = j; k < (int)dadosDoModelo.size(); k++)
+                    {
+                        // cout << k << " " << getDadosAltimetro(k) << "\n";
+                        dadosDoModelo[k].decrementaAltimetro(servoProfundor);
+                        // cout << k << " " << getDadosAltimetro(k) << "\n";
+                    }
+                }
+            }
+        }
+    }
+    void Aviao::estabilizaVelocidade(int i)
+    {
+        incrementaAcelerador(NIVEL);
+        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        {
+            if (getDadosPitot(j) < 302 && getDadosPitot(j) > 0)
+            {
+                if (getDadosPitot(j) > 222)
+                {
+                    for (int k = j; k < (int)dadosDoModelo.size(); k++)
+                    {
+                        // cout << k << " " << getDadosPitot(k) << "\n";
+                        dadosDoModelo[k].decrementaPitot(servoProfundor);
+                        // cout << k << " " << getDadosPitot(k) << "\n";
+                    }
+                }
+            }
+        }
+    }
+    // void Aviao::estabilizaMomentos(int i) {}
+
     //Imprimi todos os dados do avião
     void Aviao::imprimirDadosAviao()
     {
