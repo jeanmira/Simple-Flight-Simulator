@@ -59,12 +59,8 @@ namespace SimuladorDeVooSimples
         ~Dados();                                            // Destrutor padrão
 
         // Métodos decrementos
-        void decrementaAltimetro(T i);
+        void movimentaAltimetro(T i);
         void decrementaPitot(T i);
-
-        // Método incremento
-        void incrementaAltimetro(T i);
-        void incrementaPitot(T i);
     };
 
     // Set o pitch,roll e o yaw de acordo com as posições dos dados
@@ -121,15 +117,9 @@ namespace SimuladorDeVooSimples
 
     // Método decremento
     template <typename T>
-    void Dados<T>::decrementaAltimetro(T profundor) { altimetro -= 5 * profundor; }
+    void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= 5 * profundor; }
     template <typename T>
     void Dados<T>::decrementaPitot(T pitot) { pitot -= 0.401 * pitot; }
-
-    // Método incremento
-    template <typename T>
-    void Dados<T>::incrementaAltimetro(T profundor) { altimetro += 5 * profundor; }
-    template <typename T>
-    void Dados<T>::incrementaPitot(T pitot) { pitot += 0.401 * pitot; }
 
 } // namespace SimuladorDeVooSimples
 #endif

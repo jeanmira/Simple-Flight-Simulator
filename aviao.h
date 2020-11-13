@@ -6,9 +6,9 @@
 #include <vector>
 #include "dados.h"
 
-#define NIVEL 1
 #define ALTURAMAXIMA 1270
 #define ALTURAMINIMA 0
+#define NIVEL 1
 
 using namespace std;
 
@@ -20,7 +20,7 @@ using namespace std;
     dadosDoAviao    =>  Recente a todos os dados do avião como 
                         giroscópio, altímetro e velocidade
 
-    servo           =>  Todo servo motor tem uma abertura em graus 
+    servos           =>  Todo servo motor tem uma abertura em graus 
                         que possibilita o comando de toda aeronave
 */
 
@@ -84,12 +84,15 @@ namespace SimuladorDeVooSimples
         void incrementaProfundor(int i);
         void incrementaLeme(int i);
         void incrementaAcelerador(int i);
+
+        // Métodos de incremento e decremento
         void incrementaAileronVaiEs(int i);
         void incrementaAileronVaiDi(int i);
 
         // Métodos de decremento
         void decrementaProfundor(int i);
         void decrementaLeme(int i);
+        void decrementaAcelerador(int i);
 
         // Metodos da classe
         void estabilizaAltura(int i, int max, int min);

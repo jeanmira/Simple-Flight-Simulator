@@ -60,12 +60,12 @@ int main()
     //-----------------------------------------------------------------------------------------------------------------------------
     ofstream papel2("dados-pouso.txt"); // Cria arquivo com dados de cruzeiro
 
-    for (int i = 0; i <= 1720; i++)
+    for (int i = 0; i <= 1270; i++)
     {
         if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altuma maxima com maximo de carga
         {
             // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
-            papel2 << 1720 - i << " ";                        // Altura
+            papel2 << 1270 - i << " ";                        // Altura
             papel2 << (222 - (i * 102 / float(1270))) << " "; // Velocidade para voar
             papel2 << -1 * (i + (0.0055 * 30000)) << " ";     // Valor de pitch baseado na metade da envargadura em km vezes uma força
             papel2 << (i + (0.00828 * 30000)) << " ";         // O roll é o momento do comprimento em km vezes uma força
