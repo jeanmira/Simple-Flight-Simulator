@@ -92,17 +92,18 @@ namespace SimuladorDeVooSimples
                     }
                     for (int k = j; k < (int)dadosDoModelo.size(); k++)
                     {
-                        cout << "[" << getServoProfundor() << "]"
-                             << "[" << k << "] " << getDadosAltimetro(k) << "\n";
+                        // cout << "[" << getServoProfundor() << "]"
+                        //      << "[" << k << "] " << getDadosAltimetro(k) << "\n";
 
                         if (dadosDoModelo[j].getAltimetro() < max)
                             dadosDoModelo[k].movimentaAltimetro(servoProfundor);
 
-                        cout << "[" << getServoProfundor() << "]"
-                             << "[" << k << "] " << getDadosAltimetro(k) << "\n";
+                        // cout << "[" << getServoProfundor() << "]"
+                        //      << "[" << k << "] " << getDadosAltimetro(k) << "\n";
                     }
                     servoProfundor = 0;
                     acessoDois = 0;
+                    estabilizaAltura(i, max, min);
                 }
 
                 if (dadosDoModelo[j].getAltimetro() > max)
@@ -114,13 +115,13 @@ namespace SimuladorDeVooSimples
                     }
                     for (int k = j; k < (int)dadosDoModelo.size(); k++)
                     {
-                        //cout << "[" << getServoProfundor() << "]"
-                        //     << "[" << k << "] " << getDadosAltimetro(k) << "\n";
+                        // cout << "[" << getServoProfundor() << "]"
+                        //      << "[" << k << "] " << getDadosAltimetro(k) << "\n";
                         if (dadosDoModelo[j].getAltimetro() > min)
                             dadosDoModelo[k].movimentaAltimetro(servoProfundor);
 
-                        //cout << "[" << getServoProfundor() << "]"
-                        //     << "[" << k << "] " << getDadosAltimetro(k) << "\n";
+                        // cout << "[" << getServoProfundor() << "]"
+                        //      << "[" << k << "] " << getDadosAltimetro(k) << "\n";
                     }
                     servoProfundor = 0;
                     acessoUm = 0;

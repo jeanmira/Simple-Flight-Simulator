@@ -49,7 +49,7 @@ int main()
     leArquivos(arquivoDecolagem, novo);
 
     novo.estabilizaAltura(0, 1120, 900); // Estabiliza a Altura (onde começa a analise, altura maxima, altura minima (-1 não precisa))
-    novo.imprimirDadosDados();          // Imprimi os dados do avião
+    novo.imprimirDadosDados();           // Imprimi os dados do avião
 
     //Abre os dados de cruzeiro e adiciona no novo avião
     ifstream arquivoCruzeiro;
