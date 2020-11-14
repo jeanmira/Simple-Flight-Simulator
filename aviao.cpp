@@ -78,10 +78,6 @@ namespace SimuladorDeVooSimples
     void Aviao::estabilizaAltura(int i, int max, int min)
     {
         int acessoUm = 0, acessoDois = 0;
-        if (max == acessoDois)
-        {
-            /* code */
-        }
 
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
@@ -91,18 +87,22 @@ namespace SimuladorDeVooSimples
                 {
                     if (acessoUm < 1)
                     {
-                        incrementaProfundor(NIVEL);
+                        // Para não fichar um nivel o programa vê pela variação entre o primeiro e segundo valor
+                        // assim para qualquer mudança de altura ele mesmo faz o ajsute
+                        incrementaProfundor((dadosDoModelo[1].getAltimetro() - dadosDoModelo[0].getAltimetro()));
                         acessoUm++;
                     }
                     for (int k = j; k < (int)dadosDoModelo.size(); k++)
                     {
                         /* cout << "[" << getServoProfundor() << "]"
                              << "[" << k << "] " << getDadosAltimetro(k) << "\n"; */
+
                         if (dadosDoModelo[k].getAltimetro() > min)
                             dadosDoModelo[k].movimentaAltimetro(servoProfundor);
 
                         /* cout << "[" << getServoProfundor() << "]"
-                             << "[" << k << "] " << getDadosAltimetro(k) << "\n"; */
+                             << "[" << k << "] " << getDadosAltimetro(k) << "\n";
+                        cout << dadosDoModelo[k].getAltimetro() << "\n"; */
                     }
                     servoProfundor = 0;
                     acessoUm = 0;
@@ -113,7 +113,9 @@ namespace SimuladorDeVooSimples
         {
             if (acessoDois < 1)
             {
-                decrementaProfundor(NIVEL);
+                // Para não fichar um nivel o programa vê pela variação entre o primeiro e segundo valor
+                // assim para qualquer mudança de altura ele mesmo faz o ajsute
+                decrementaProfundor((dadosDoModelo[1].getAltimetro() - dadosDoModelo[0].getAltimetro()));
                 acessoDois++;
             }
             if (dadosDoModelo[j].getAltimetro() < min)

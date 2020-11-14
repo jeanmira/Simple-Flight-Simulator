@@ -117,7 +117,7 @@ namespace SimuladorDeVooSimples
 
     // Método decremento
     template <typename T>
-    void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= (5 * profundor); }
+    void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= (1 * profundor); }
     template <typename T>
     void Dados<T>::decrementaPitot(T pitot) { pitot -= 0.401 * pitot; }
 
