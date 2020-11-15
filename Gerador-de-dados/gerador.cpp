@@ -46,12 +46,10 @@ int main()
     for (int i = 0; i < 1000; i++)
     {
         // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
-        if (i < 400)
-            papel1 << (1270 - i) << " "; // Altura
-        else
-            papel1 << (871 + (i / 8)) << " ";              // Altura
+
+        papel1 << (1270 - i) << " ";                       // Altura
         papel1 << (302 - (i * 102 / float(1270))) << " ";  // Velocidade para voar
-        papel1 << -1 * (i + (0.0055 * 300)) << " ";      // Valor de pitch baseado na metade da envargadura em km vezes uma força
+        papel1 << -1 * (i + (0.0055 * 300)) << " ";        // Valor de pitch baseado na metade da envargadura em km vezes uma força
         papel1 << -1 * (i + (0.00828 * 30000)) << " ";     // O roll é o momento do comprimento em km vezes uma força
         papel1 << -1 * (i + ((0.00828 + 0.0055) * 30000)); // O momento em yaw é zero pois não tem giro nesse eixo
         papel1 << "\n";

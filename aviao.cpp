@@ -77,57 +77,38 @@ namespace SimuladorDeVooSimples
     // Metodos da classe que estabiliza o avião na altura
     void Aviao::estabilizaAltura(int i, int max, int min)
     {
-        int acessoUm = 0, acessoDois = 0;
-
+        int acesso = 0;
+        int nivel = (dadosDoModelo[i+1].getAltimetro() - dadosDoModelo[i].getAltimetro());
+        if (nivel < 0)
+            nivel *= -1;
+        cout << nivel << "\n";
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
-            if (dadosDoModelo[j].getAltimetro() < ALTURAMAXIMA && dadosDoModelo[j].getAltimetro() >= ALTURAMINIMA)
-            {
-                if (dadosDoModelo[j].getAltimetro() > max)
-                {
-                    if (acessoUm < 1)
-                    {
-                        // Para não fichar um nivel o programa vê pela variação entre o primeiro e segundo valor
-                        // assim para qualquer mudança de altura ele mesmo faz o ajsute
-                        incrementaProfundor((dadosDoModelo[1].getAltimetro() - dadosDoModelo[0].getAltimetro()));
-                        acessoUm++;
-                    }
-                    for (int k = j; k < (int)dadosDoModelo.size(); k++)
-                    {
-                        /* cout << "[" << getServoProfundor() << "]"
-                             << "[" << k << "] " << getDadosAltimetro(k) << "\n"; */
-
-                        if (dadosDoModelo[k].getAltimetro() > min)
-                            dadosDoModelo[k].movimentaAltimetro(servoProfundor);
-
-                        /* cout << "[" << getServoProfundor() << "]"
-                             << "[" << k << "] " << getDadosAltimetro(k) << "\n";
-                        cout << dadosDoModelo[k].getAltimetro() << "\n"; */
-                    }
-                    servoProfundor = 0;
-                    acessoUm = 0;
-                }
-            }
-        }
-        for (int j = ((int)dadosDoModelo.size() - 1); j >= i; j--)
-        {
-            if (acessoDois < 1)
-            {
-                // Para não fichar um nivel o programa vê pela variação entre o primeiro e segundo valor
-                // assim para qualquer mudança de altura ele mesmo faz o ajsute
-                decrementaProfundor((dadosDoModelo[1].getAltimetro() - dadosDoModelo[0].getAltimetro()));
-                acessoDois++;
-            }
             if (dadosDoModelo[j].getAltimetro() < min)
             {
-                for (int k = j; k >= i; k--)
+                if (acesso == 0)
                 {
-                    if (dadosDoModelo[k].getAltimetro() < max)
-                        dadosDoModelo[k].movimentaAltimetro(servoProfundor);
+                    decrementaProfundor(nivel);
+                    acesso++;
                 }
+
+                while (dadosDoModelo[j].getAltimetro() < min)
+                    dadosDoModelo[j].movimentaAltimetro(servoProfundor);
             }
+            acesso = 0;
             servoProfundor = 0;
-            acessoDois = 0;
+            if (dadosDoModelo[j].getAltimetro() > max)
+            {
+                if (acesso == 0)
+                {
+                    incrementaProfundor(nivel);
+                    acesso++;
+                }
+                while (dadosDoModelo[j].getAltimetro() > max)
+                    dadosDoModelo[j].movimentaAltimetro(servoProfundor);
+            }
+            acesso = 0;
+            servoProfundor = 0;
         }
     }
 
