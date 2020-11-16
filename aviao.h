@@ -97,7 +97,7 @@ namespace SimuladorDeVooSimples
         // Metodos da classe
         void estabilizaAltura(int i, float max, float min);
         void estabilizaVelocidade(int i, float max, float min);
-        void estabilizaMomentos(int i);
+        void estabilizaMomentos(int i, float max, float min);
 
         void imprimirDadosAviao(); //Imprimi todos os dados do avião
         void imprimirDadosDados(); //Imprimi todos os dados dos dados

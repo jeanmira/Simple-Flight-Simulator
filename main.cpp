@@ -49,6 +49,7 @@ int main()
     leArquivos(arquivoDecolagem, novo);
 
     novo.estabilizaAltura(0, 1120, -1); // Estabiliza a Altura (onde começa a analise, altura maxima, altura minima )
+    novo.estabilizaMomentos(0, 0, 0);
     //novo.imprimirDadosDados();          // Imprimi os dados do avião
 
     //Abre os dados de cruzeiro e adiciona no novo avião
@@ -58,16 +59,18 @@ int main()
 
     novo.estabilizaAltura(255, 1000, 900);    // Estabiliza a Altura (onde começa a analise, altura padrão, altura minima )
     novo.estabilizaVelocidade(255, 222, 216); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade minima )
-    //novo.imprimirDadosDados();           // Imprimi os dados do avião
+    novo.estabilizaMomentos(255, 0, 0);
+    novo.imprimirDadosDados(); // Imprimi os dados do avião
 
     //Abre os dados de cruzeiro e adiciona no novo avião
     ifstream arquivoPouso;
     arquivoPouso.open("Gerador-de-dados/dados-pouso.txt");
-    leArquivos(arquivoPouso, novo);
+    //leArquivos(arquivoPouso, novo);
 
-    novo.estabilizaAltura(1255, 800, -1);    // Estabiliza a Altura (onde começa a analise, altura padrão, altura minima )
-    novo.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade minima )
-    novo.imprimirDadosDados();               // Imprimi os dados do avião
+    //novo.estabilizaAltura(1255, 800, -1);    // Estabiliza a Altura (onde começa a analise, altura padrão, altura minima )
+    //novo.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade minima )
+    //novo.estabilizaMomentos(1255, 0, 0);
+    //novo.imprimirDadosDados(); // Imprimi os dados do avião
 
     return 0;
 }

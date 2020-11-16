@@ -59,8 +59,11 @@ namespace SimuladorDeVooSimples
         ~Dados();                                            // Destrutor padrão
 
         // Métodos decrementos
-        void movimentaAltimetro(T i);
-        void movimentaPitot(T i);
+        void movimentaAltimetro(T profundor);
+        void movimentaPitot(T acelerador);
+        void movimentaPitch(T profundor);
+        void movimentaRoll(T aileronEs, T aileronDi);
+        void movimentaYaw(T leme);
     };
 
     // Set o pitch,roll e o yaw de acordo com as posições dos dados
@@ -115,11 +118,21 @@ namespace SimuladorDeVooSimples
     template <typename T>
     Dados<T>::~Dados() {}
 
-    // Método decremento
+    // Métodos de movinto das estruturas de controle
     template <typename T>
     void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= (profundor); }
     template <typename T>
     void Dados<T>::movimentaPitot(T acelerador) { pitot -= (acelerador); }
+    template <typename T>
+    void Dados<T>::movimentaPitch(T profundor) { giroscopio[0] -= (profundor); }
+    template <typename T>
+    void Dados<T>::movimentaRoll(T aileronEs, T aileronDi)
+    {
+        giroscopio[1] -= (aileronDi);
+        giroscopio[1] += (aileronEs);
+    }
+    template <typename T>
+    void Dados<T>::movimentaYaw(T leme) { giroscopio[2] -= (leme); }
 
 } // namespace SimuladorDeVooSimples
 #endif
