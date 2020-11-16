@@ -83,7 +83,6 @@ namespace SimuladorDeVooSimples
         // Se a taxa der negatriva faz o modulo
         if (nivel < 0)
             nivel *= -1;
-        //cout << nivel << "\n";
         // Percorre os dados para corrigir para o ideal
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
@@ -133,9 +132,7 @@ namespace SimuladorDeVooSimples
         // Se a taxa der negatriva faz o modulo
         if (nivel < 0)
             nivel *= -1;
-        //cout << nivel << "\n";
         // Percorre os dados para corrigir para o ideal
-        //cout << nivel << " " << getServoAcelerador() << " " << dadosDoModelo[i + 1].getPitot() << " " << dadosDoModelo[i].getPitot() << "\n";
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
             // Se o dados forem menores que o minimo entra e ajusta
@@ -150,11 +147,7 @@ namespace SimuladorDeVooSimples
                 }
                 // Faz o ajuste para aumentar a velocidade
                 while (dadosDoModelo[j].getPitot() < min)
-                {
-                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
                     dadosDoModelo[j].movimentaPitot(servoAcelerador);
-                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
-                }
             }
             // Zera o acesso e o profundor para poder ter outro movimento
             acesso = 0;
@@ -171,11 +164,7 @@ namespace SimuladorDeVooSimples
                 }
                 // Faz o ajuste para diminuir a velocidade
                 while (dadosDoModelo[j].getPitot() > max)
-                {
-                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
                     dadosDoModelo[j].movimentaPitot(servoAcelerador);
-                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
-                }
             }
             // Zera o acesso e o profundor para poder ter outro movimento
             acesso = 0;
@@ -195,9 +184,7 @@ namespace SimuladorDeVooSimples
         // Se a taxa der negatriva faz o modulo
         if (nivel < 0)
             nivel *= -1;
-        //cout << nivel << "\n";
         // Percorre os dados para corrigir para o momento do pitch ideal que e 0
-        //cout << nivel << " " << getGiroscopio_pitch()) << " " << dadosDoModelo[i + 1].getGiroscopio_pitch() << " " << dadosDoModelo[i].getPitot() << "\n";
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
             // Se o dados forem menores que o minimo entra e ajusta
@@ -213,20 +200,10 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para aumentar o momento pitch que e controlado pelo profundor
                 while (dadosDoModelo[j].getGiroscopio_pitch() < min && dadosDoModelo[j].getGiroscopio_pitch() <= 0)
                 {
-                    /* cout << "1 - I[" << j << "] - N[" << nivel << "] - P[" << getServoProfundor() << "] - A[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_pitch() << "] "
-                         << "\n"; */
                     dadosDoModelo[j].movimentaPitch(servoProfundor);
                     // Se aumentar demais ele faz um ultimo ajuste fino
-                    /* cout << "Entrou 1.1"
-                         << "\n"; */
                     if (dadosDoModelo[j].getGiroscopio_pitch() != nivel && dadosDoModelo[j].getGiroscopio_pitch() < nivel && dadosDoModelo[j].getGiroscopio_pitch() != 0)
-                    {
                         dadosDoModelo[j].movimentaPitch(+(dadosDoModelo[j].getGiroscopio_pitch()));
-                        /* cout << "if------1"
-                             << "\n"; */
-                    }
-                    /* cout << "2 - I[" << j << "] - N[" << nivel << "] - P[" << getServoProfundor() << "] - A[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_pitch() << "] "
-                         << "\n"; */
                 }
             }
             // Zera o acesso e o profundor para poder ter outro movimento
@@ -245,16 +222,10 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para diminuir o momento pitch que e controlado pelo profundor
                 while (dadosDoModelo[j].getGiroscopio_pitch() > max && dadosDoModelo[j].getGiroscopio_pitch() >= 0)
                 {
-                    /* cout << "1 - i[" << j << "] - Nivel[" << nivel << "] - Profundor[" << getServoProfundor() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_pitch() << "] "
-                         << "\n"; */
                     dadosDoModelo[j].movimentaPitch(servoProfundor);
                     // Se diminuir demais ele faz um ultimo ajuste fino
-                    /* cout << "Entrou 1.2"
-                         << "\n"; */
                     if (dadosDoModelo[j].getGiroscopio_pitch() != nivel && dadosDoModelo[j].getGiroscopio_pitch() < nivel && dadosDoModelo[j].getGiroscopio_pitch() != 0)
                         dadosDoModelo[j].movimentaPitch(-(dadosDoModelo[j].getGiroscopio_pitch()));
-                    /* cout << "2 - i[" << j << "] - Nivel[" << nivel << "] - Profundor[" << getServoProfundor() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_pitch() << "] "
-                         << "\n"; */
                 }
             }
             // Zera o acesso e o profundor para poder ter outro movimento
@@ -289,8 +260,6 @@ namespace SimuladorDeVooSimples
                 while (dadosDoModelo[j].getGiroscopio_roll() < min && dadosDoModelo[j].getGiroscopio_roll() <= 0)
                 {
                     dadosDoModelo[j].movimentaRoll(servoAileronEs, servoAileronDi);
-                    /* cout << "Entrou 2.1"
-                         << "\n"; */
                     // Se aumentar demais ele faz um ultimo ajuste
                     if (dadosDoModelo[j].getGiroscopio_roll() != nivel && dadosDoModelo[j].getGiroscopio_roll() > nivel)
                         dadosDoModelo[j].movimentaRoll(+(dadosDoModelo[j].getGiroscopio_roll() / 2), -(dadosDoModelo[j].getGiroscopio_roll() / 2));
@@ -314,8 +283,6 @@ namespace SimuladorDeVooSimples
                 while (dadosDoModelo[j].getGiroscopio_roll() > max && dadosDoModelo[j].getGiroscopio_roll() >= 0)
                 {
                     dadosDoModelo[j].movimentaRoll(servoAileronEs, servoAileronDi);
-                    /* cout << "Entrou 2.2"
-                         << "\n"; */
                     // Se diminuir demais ele faz um ultimo ajuste
                     if (dadosDoModelo[j].getGiroscopio_roll() != nivel && dadosDoModelo[j].getGiroscopio_roll() < nivel)
                         dadosDoModelo[j].movimentaRoll(-(dadosDoModelo[j].getGiroscopio_roll() / 2), +(dadosDoModelo[j].getGiroscopio_roll() / 2));
@@ -353,13 +320,7 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para aumentar o momento yaw que e controlado pelo leme
                 while (dadosDoModelo[j].getGiroscopio_yaw() < min && dadosDoModelo[j].getGiroscopio_yaw() <= 0)
                 {
-                    /* cout << "1 - j[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n"; */
                     dadosDoModelo[j].movimentaYaw(servoLeme);
-                    /* cout << "2 - j[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n";
-                    cout << "Entrou 3.1"
-                         << "\n"; */
                     // Se aumentar demais ele faz um ultimo ajuste
                     if (dadosDoModelo[j].getGiroscopio_yaw() != nivel && dadosDoModelo[j].getGiroscopio_yaw() < nivel && dadosDoModelo[j].getGiroscopio_yaw() != 0)
                         dadosDoModelo[j].movimentaYaw(+(dadosDoModelo[j].getGiroscopio_yaw()));
@@ -381,14 +342,8 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para diminuir o momento yaw que e controlado pelo leme
                 while (dadosDoModelo[j].getGiroscopio_yaw() > max && dadosDoModelo[j].getGiroscopio_yaw() >= 0)
                 {
-                    /* cout << "1 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n"; */
                     dadosDoModelo[j].movimentaYaw(servoLeme);
                     // Se diminuir demais ele faz um ultimo ajuste
-                    /* cout << "2 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n";
-                    cout << "Entrou 3.2"
-                         << "\n"; */
                     if (dadosDoModelo[j].getGiroscopio_yaw() != nivel && dadosDoModelo[j].getGiroscopio_yaw() < nivel && dadosDoModelo[j].getGiroscopio_yaw() != 0)
                         dadosDoModelo[j].movimentaYaw(+(dadosDoModelo[j].getGiroscopio_yaw()));
                 }
