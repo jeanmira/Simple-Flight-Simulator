@@ -81,22 +81,22 @@ namespace SimuladorDeVooSimples
         ~Aviao(); // Destrutor padrão
 
         // Métodos de incremento
-        void incrementaProfundor(int i);
-        void incrementaLeme(int i);
-        void incrementaAcelerador(int i);
+        void incrementaProfundor(float i);
+        void incrementaLeme(float i);
+        void incrementaAcelerador(float i);
 
         // Métodos de incremento e decremento
-        void incrementaAileronVaiEs(int i);
-        void incrementaAileronVaiDi(int i);
+        void incrementaAileronVaiEs(float i);
+        void incrementaAileronVaiDi(float i);
 
         // Métodos de decremento
-        void decrementaProfundor(int i);
-        void decrementaLeme(int i);
-        void decrementaAcelerador(int i);
+        void decrementaProfundor(float i);
+        void decrementaLeme(float i);
+        void decrementaAcelerador(float i);
 
         // Metodos da classe
-        void estabilizaAltura(int i, int max, int min);
-        void estabilizaVelocidade(int i);
+        void estabilizaAltura(int i, float max, float min);
+        void estabilizaVelocidade(int i, float max, float min);
         void estabilizaMomentos(int i);
 
         void imprimirDadosAviao(); //Imprimi todos os dados do avião

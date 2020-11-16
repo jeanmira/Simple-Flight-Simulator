@@ -60,7 +60,7 @@ namespace SimuladorDeVooSimples
 
         // Métodos decrementos
         void movimentaAltimetro(T i);
-        void decrementaPitot(T i);
+        void movimentaPitot(T i);
     };
 
     // Set o pitch,roll e o yaw de acordo com as posições dos dados
@@ -119,7 +119,7 @@ namespace SimuladorDeVooSimples
     template <typename T>
     void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= (profundor); }
     template <typename T>
-    void Dados<T>::decrementaPitot(T pitot) { pitot -= 0.401 * pitot; }
+    void Dados<T>::movimentaPitot(T acelerador) { pitot -= (acelerador); }
 
 } // namespace SimuladorDeVooSimples
 #endif

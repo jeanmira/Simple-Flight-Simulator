@@ -53,83 +53,133 @@ namespace SimuladorDeVooSimples
     Aviao::~Aviao() {}
 
     // Métodos de incremento
-    void Aviao::incrementaProfundor(int i) { this->servoProfundor += i; }
-    void Aviao::incrementaLeme(int i) { this->servoLeme += i; }
-    void Aviao::incrementaAcelerador(int i) { this->servoAcelerador += i; }
+    void Aviao::incrementaProfundor(float i) { this->servoProfundor += i; }
+    void Aviao::incrementaLeme(float i) { this->servoLeme += i; }
+    void Aviao::incrementaAcelerador(float i) { this->servoAcelerador += i; }
 
     // Métodos de incremento e decremento
-    void Aviao::incrementaAileronVaiEs(int i)
+    void Aviao::incrementaAileronVaiEs(float i)
     {
         this->servoAileronDi += i;
         this->servoAileronEs -= i;
     }
-    void Aviao::incrementaAileronVaiDi(int i)
+    void Aviao::incrementaAileronVaiDi(float i)
     {
         this->servoAileronDi -= i;
         this->servoAileronEs += i;
     }
 
     // Métodos de decremento
-    void Aviao::decrementaProfundor(int i) { this->servoProfundor -= i; }
-    void Aviao::decrementaLeme(int i) { this->servoLeme -= i; }
-    void Aviao::decrementaAcelerador(int i) { this->servoAcelerador -= i; }
+    void Aviao::decrementaProfundor(float i) { this->servoProfundor -= i; }
+    void Aviao::decrementaLeme(float i) { this->servoLeme -= i; }
+    void Aviao::decrementaAcelerador(float i) { this->servoAcelerador -= i; }
 
     // Metodos da classe que estabiliza o avião na altura
-    void Aviao::estabilizaAltura(int i, int max, int min)
+    void Aviao::estabilizaAltura(int i, float max, float min)
     {
         int acesso = 0;
-        int nivel = (dadosDoModelo[i+1].getAltimetro() - dadosDoModelo[i].getAltimetro());
+        // Verifica a taxa de variação
+        float nivel = (dadosDoModelo[i + 1].getAltimetro() - dadosDoModelo[i].getAltimetro());
+        // Se a taxa der negatriva faz o modulo
         if (nivel < 0)
             nivel *= -1;
-        cout << nivel << "\n";
+        //cout << nivel << "\n";
+        // Percorre os dados para corrigir para o ideal
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
+            // Se o dados forem menores que o minimo entra e ajusta
             if (dadosDoModelo[j].getAltimetro() < min)
             {
+                // Questão de acesso para ajustar o nivel do profundor
                 if (acesso == 0)
                 {
+                    // Ajusta o nivel do profundor
                     decrementaProfundor(nivel);
                     acesso++;
                 }
-
+                // Faz o ajuste para aumentar a altura
                 while (dadosDoModelo[j].getAltimetro() < min)
                     dadosDoModelo[j].movimentaAltimetro(servoProfundor);
             }
+            // Zera o acesso e o profundor para poder ter outro movimento
             acesso = 0;
             servoProfundor = 0;
+            // Se o dados forem maiores que o maximo entra e ajusta
             if (dadosDoModelo[j].getAltimetro() > max)
             {
+                // Questão de acesso para ajustar o nivel do profundor
                 if (acesso == 0)
                 {
+                    // Ajusta o nivel do profundor
                     incrementaProfundor(nivel);
                     acesso++;
                 }
+                // Faz o ajuste para diminuir a altura
                 while (dadosDoModelo[j].getAltimetro() > max)
                     dadosDoModelo[j].movimentaAltimetro(servoProfundor);
             }
+            // Zera o acesso e o profundor para poder ter outro movimento
             acesso = 0;
             servoProfundor = 0;
         }
     }
 
     // Metodos da classe que estabiliza o avião na velocidade
-    void Aviao::estabilizaVelocidade(int i)
+    void Aviao::estabilizaVelocidade(int i, float max, float min)
     {
+        int acesso = 0;
+        // Verifica a taxa de variação
+        float nivel = (dadosDoModelo[i + 1].getPitot() - dadosDoModelo[i].getPitot());
+        // Se a taxa der negatriva faz o modulo
+        if (nivel < 0)
+            nivel *= -1;
+        //cout << nivel << "\n";
+        // Percorre os dados para corrigir para o ideal
+        cout << nivel << " " << getServoAcelerador() << " " << dadosDoModelo[i + 1].getPitot() << " " << dadosDoModelo[i].getPitot() << "\n";
         for (int j = i; j < (int)dadosDoModelo.size(); j++)
         {
-
-            if (getDadosPitot(j) < 302 && getDadosPitot(j) > 0)
+            // Se o dados forem menores que o minimo entra e ajusta
+            if (dadosDoModelo[j].getPitot() < min)
             {
-                if (getDadosPitot(j) > 222)
+                // Questão de acesso para ajustar o nivel do acelerador
+                if (acesso == 0)
                 {
-                    for (int k = j; k < (int)dadosDoModelo.size(); k++)
-                    {
-                        // cout << k << " " << getDadosPitot(k) << "\n";
-                        dadosDoModelo[k].decrementaPitot(servoProfundor);
-                        // cout << k << " " << getDadosPitot(k) << "\n";
-                    }
+                    // Ajusta o nivel do acelerador
+                    decrementaAcelerador(nivel);
+                    acesso++;
+                }
+                // Faz o ajuste para aumentar a velocidade
+                while (dadosDoModelo[j].getPitot() < min)
+                {
+                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
+                    dadosDoModelo[j].movimentaPitot(servoAcelerador);
+                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
                 }
             }
+            // Zera o acesso e o profundor para poder ter outro movimento
+            acesso = 0;
+            servoAcelerador = 0;
+            // Se o dados forem maiores que o maximo entra e ajusta
+            if (dadosDoModelo[j].getPitot() > max)
+            {
+                // Questão de acesso para ajustar o nivel do acelerador
+                if (acesso == 0)
+                {
+                    // Ajusta o nivel do acelerador
+                    incrementaAcelerador(nivel);
+                    acesso++;
+                }
+                // Faz o ajuste para diminuir a velocidade
+                while (dadosDoModelo[j].getPitot() > max)
+                {
+                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
+                    dadosDoModelo[j].movimentaPitot(servoAcelerador);
+                    //cout << "[" << j << "] " << dadosDoModelo[j].getPitot() << "\n";
+                }
+            }
+            // Zera o acesso e o profundor para poder ter outro movimento
+            acesso = 0;
+            servoAcelerador = 0;
         }
     }
     // void Aviao::estabilizaMomentos(int i) {}
