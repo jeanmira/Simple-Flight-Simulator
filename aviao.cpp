@@ -353,16 +353,16 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para aumentar o momento yaw que e controlado pelo leme
                 while (dadosDoModelo[j].getGiroscopio_yaw() < min && dadosDoModelo[j].getGiroscopio_yaw() <= 0)
                 {
-                    cout << "1 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n";
+                    /* cout << "1 - j[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
+                         << "\n"; */
                     dadosDoModelo[j].movimentaYaw(servoLeme);
-                    cout << "2 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
+                    /* cout << "2 - j[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
                          << "\n";
                     cout << "Entrou 3.1"
-                         << "\n";
+                         << "\n"; */
                     // Se aumentar demais ele faz um ultimo ajuste
-                    /* if (dadosDoModelo[j].getGiroscopio_yaw() != nivel && dadosDoModelo[j].getGiroscopio_yaw() > nivel && dadosDoModelo[j].getGiroscopio_pitch() != 0)
-                        dadosDoModelo[j].movimentaYaw(-(dadosDoModelo[j].getGiroscopio_yaw())); */
+                    if (dadosDoModelo[j].getGiroscopio_yaw() != nivel && dadosDoModelo[j].getGiroscopio_yaw() < nivel && dadosDoModelo[j].getGiroscopio_yaw() != 0)
+                        dadosDoModelo[j].movimentaYaw(+(dadosDoModelo[j].getGiroscopio_yaw()));
                 }
             }
             // Zera o acesso e o leme para poder ter outro movimento
@@ -381,16 +381,16 @@ namespace SimuladorDeVooSimples
                 // Faz o ajuste para diminuir o momento yaw que e controlado pelo leme
                 while (dadosDoModelo[j].getGiroscopio_yaw() > max && dadosDoModelo[j].getGiroscopio_yaw() >= 0)
                 {
-                    cout << "1 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
-                         << "\n";
+                    /* cout << "1 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
+                         << "\n"; */
                     dadosDoModelo[j].movimentaYaw(servoLeme);
                     // Se diminuir demais ele faz um ultimo ajuste
-                    cout << "2 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
+                    /* cout << "2 - i[" << j << "] - Nivel[" << nivel << "] - Leme[" << getServoLeme() << "] - Acesso[" << acesso << "] - Valor[" << dadosDoModelo[j].getGiroscopio_yaw() << "] "
                          << "\n";
                     cout << "Entrou 3.2"
-                         << "\n";
-                    /* if (dadosDoModelo[j].getGiroscopio_roll() != nivel && dadosDoModelo[j].getGiroscopio_roll() < nivel && dadosDoModelo[j].getGiroscopio_pitch() != 0)
-                        dadosDoModelo[j].movimentaYaw(+(dadosDoModelo[j].getGiroscopio_yaw())); */
+                         << "\n"; */
+                    if (dadosDoModelo[j].getGiroscopio_yaw() != nivel && dadosDoModelo[j].getGiroscopio_yaw() < nivel && dadosDoModelo[j].getGiroscopio_yaw() != 0)
+                        dadosDoModelo[j].movimentaYaw(+(dadosDoModelo[j].getGiroscopio_yaw()));
                 }
             }
             // Zera o acesso e o leme para poder ter outro movimento
