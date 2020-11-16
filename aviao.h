@@ -39,7 +39,7 @@ namespace SimuladorDeVooSimples
         float servoAcelerador;              // Servo motor com abertura de 0 - 180° para acelerador
 
     public:
-        //Metodos para mudar as variaveis
+        // Métodos para mudar as variaveis
         void setModelo(string);
         void setMarca(string);
         void setServoProfundor(float);
@@ -49,7 +49,7 @@ namespace SimuladorDeVooSimples
         void setServoAcelerador(float);
         void insereDados(Dados<float> temp);
 
-        //Metodos para mudar as variaveis dos Dados
+        // Métodos para mudar as variaveis dos Dados
         void setDadosAltimetro(int, float);
         void setDadosPitot(int, float);
         void setDadosPitch(int, float);
