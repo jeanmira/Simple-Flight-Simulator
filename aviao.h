@@ -13,15 +13,15 @@
 using namespace std;
 
 /*
-    Classe responsável pelas especificações do avião
-
-    modelo          =>  Recente a marca ou código do avião
-
-    dadosDoAviao    =>  Recente a todos os dados do avião como 
-                        giroscópio, altímetro e velocidade
-
-    servos           =>  Todo servo motor tem uma abertura em graus 
-                        que possibilita o comando de toda aeronave
+   Classe responsável pelas especificações do avião
+ 
+   modelo          =>  Recente a marca ou código do avião
+ 
+   dadosDoAviao    =>  Recente a todos os dados do avião como
+                       giroscópio, altímetro e velocidade
+ 
+   servos           =>  Todo servo motor tem uma abertura em graus
+                       que possibilita o comando de toda aeronave
 */
 
 namespace SimuladorDeVooSimples
@@ -56,14 +56,14 @@ namespace SimuladorDeVooSimples
         void setDadosRoll(int, float);
         void setDadosYaw(int, float);
 
-        //Metodos para saber os valores das variaveis dos Dados
+        // Métodos para saber os valores das variáveis dos Dados
         float getDadosAltimetro(int);
         float getDadosPitot(int);
         float getDadosPitch(int);
         float getDadosRoll(int);
         float getDadosYaw(int);
 
-        //Metodos para saber os valores das variaveis
+        // Métodos para saber os valores das variáveis
         string getModelo();
         string getMarca();
         float getServoProfundor() const;
@@ -72,10 +72,10 @@ namespace SimuladorDeVooSimples
         float getServoAileronDi() const;
         float getServoAcelerador() const;
 
-        // Contrutor padrão
+        // Construtor padrão
         Aviao() : modelo{"DESCONHECIDO"}, marca{"DESCONHECIDA"}, servoProfundor{0.0}, servoLeme{0.0}, servoAileronEs{0.0}, servoAileronDi{0.0}, servoAcelerador{0.0} {};
 
-        // Contrutor que inicializa os parâmetros
+        // Construtor que inicializa os parâmetros
         Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador);
 
         ~Aviao(); // Destrutor padrão
@@ -94,13 +94,13 @@ namespace SimuladorDeVooSimples
         void decrementaLeme(float i);
         void decrementaAcelerador(float i);
 
-        // Metodos da classe
+        // Métodos da classe
         void estabilizaAltura(int i, float max, float min);
         void estabilizaVelocidade(int i, float max, float min);
         void estabilizaMomentos(int i, float max, float min);
 
-        void imprimirDadosAviao(); //Imprimi todos os dados do avião
-        void imprimirDadosDados(); //Imprimi todos os dados dos dados
+        void imprimirDadosAviao(); // Imprime todos os dados do avião
+        void imprimirDadosDados(); // Imprime todos os dados dos dados
     };
 } // namespace SimuladorDeVooSimples
 #endif

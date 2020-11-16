@@ -2,22 +2,20 @@
 #define DADOS_H
 
 /*
-   Classe responsável pelos dados do avião, como podem haver
-   vários aviões com vários parâmetros foi necessário criar
-   essa classe
- 
-   giroscopio  =>  A ideia para o giroscópio e poder saber
-                   em qual posição o avião está assim dando
-                   autonomia para que os servos motores possam
-                   manter a estabilidade
- 
-   altimetro   =>  Vai dar dados que possibilitem a modificacao
-                   da altura do avião, assim podendo alterar a
-                   abertura do profundor para subir ou descer
- 
-   pitot       =>  Esse instrumento é utilizado medir a velocidade e
-                   após retornar esse dado é possível aumentar o
-                   diminuir a velocidade para que o aviao nao estole
+  Classe responsável pelos dados do avião, como podem haver
+  vários aviões com vários parâmetros foi necessário criar
+  essa classe
+  
+  giroscopio  =>  A ideia para o giroscópio e poder saber
+                  em qual posição o avião está assim dando
+                  autonomia para que os servos motores possam
+                  manter a estabilidade
+  altimetro   =>  Vai dar dados que possibilitem a modificacao
+                  da altura do avião, assim podendo alterar a
+                  abertura do profundor para subir ou descer
+  pitot       =>  Esse instrumento é utilizado medir a velocidade e
+                  após retornar esse dado é possível aumentar o
+                  diminuir a velocidade para que o aviao nao estole
 */
 
 namespace SimuladorDeVooSimples
@@ -27,35 +25,35 @@ namespace SimuladorDeVooSimples
     {
     private:
         /*
-    • giroscopio(pitch, roll, yaw) onde pitch, roll e yaw são 
-    os principais eixos de inércia de uma aeronave, como pode 
-    ser visto na figura abaixo.
-
-    •altimetro(h) onde h e a altura referente ao nível do mar;
-
-    • pitot(v) onde v e a velocidade da aeronave;
-    */
+   • giroscópio(pitch, roll, yaw) onde pitch, roll e yaw são
+   os principais eixos de inércia de uma aeronave, como pode
+   ser visto na figura abaixo.
+ 
+   •altímetro(h) onde h e a altura referente ao nível do mar;
+ 
+   • pitot(v) onde v e a velocidade da aeronave;
+   */
 
         T giroscopio[3]; // Medição do momento
         T altimetro;     // Altitude medida em relação ao nível do mar
         T pitot;         // Instrumento de medição de velocidade
 
     public:
-        void setGiroscopio(T pitch, T roll, T yaw); // Método set do Giroscopio
-        void setAltimetro(T altimetro);             // Método set do Altimetro
+        void setGiroscopio(T pitch, T roll, T yaw); // Método set do Giroscópio
+        void setAltimetro(T altimetro);             // Método set do Altímetro
         void setPitot(T pitot);                     // Método set do Pitot
-        void setPitch(T pitch);                     // Método set do pitch do Giroscopio
-        void setRoll(T roll);                       // Método set do roll do Giroscopio
-        void setYaw(T yaw);                         // Método set do yaw do Giroscopio
+        void setPitch(T pitch);                     // Método set do pitch do Giroscópio
+        void setRoll(T roll);                       // Método set do roll do Giroscópio
+        void setYaw(T yaw);                         // Método set do yaw do Giroscópio
 
-        T getGiroscopio_pitch(); // Método get do pitch do Giroscopio
-        T getGiroscopio_roll();  // Método get do roll do Giroscopio
-        T getGiroscopio_yaw();   // Método get do yaw do Giroscopio
-        T getAltimetro();        // Método get do Altimetro
+        T getGiroscopio_pitch(); // Método get do pitch do Giroscópio
+        T getGiroscopio_roll();  // Método get do roll do Giroscópio
+        T getGiroscopio_yaw();   // Método get do yaw do Giroscópio
+        T getAltimetro();        // Método get do Altímetro
         T getPitot();            // Método get do Pitot
 
-        Dados(T altimetro, T pitot, T pitch, T roll, T yaw); // Contrutor que inicializa os parâmetros
-        Dados();                                             // Contrutor padrão
+        Dados(T altimetro, T pitot, T pitch, T roll, T yaw); // Construtor que inicializa os parâmetros
+        Dados();                                             // Construtor padrão
         ~Dados();                                            // Destrutor padrão
 
         // Métodos decrementos
@@ -79,11 +77,11 @@ namespace SimuladorDeVooSimples
     template <typename T>
     void Dados<T>::setPitot(T pitot) { this->pitot = pitot; } // Set o pitot recebido dos dados
     template <typename T>
-    void Dados<T>::setPitch(T pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscopio
+    void Dados<T>::setPitch(T pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscópio
     template <typename T>
-    void Dados<T>::setRoll(T roll) { giroscopio[1] = roll; } // Método set do roll do Giroscopio
+    void Dados<T>::setRoll(T roll) { giroscopio[1] = roll; } // Método set do roll do Giroscópio
     template <typename T>
-    void Dados<T>::setYaw(T yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscopio
+    void Dados<T>::setYaw(T yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscópio
 
     template <typename T>
     T Dados<T>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
@@ -92,11 +90,11 @@ namespace SimuladorDeVooSimples
     template <typename T>
     T Dados<T>::getGiroscopio_yaw() { return giroscopio[2]; } // Retorna o valor de yaw
     template <typename T>
-    T Dados<T>::getAltimetro() { return altimetro; } // Retorna o valor do altimetro
+    T Dados<T>::getAltimetro() { return altimetro; } // Retorna o valor do altímetro
     template <typename T>
     T Dados<T>::getPitot() { return pitot; } // Retorna o pitot
 
-    // Contrutor que inicializa os parâmetros
+    // Construtor que inicializa os parâmetros
     template <typename T>
     Dados<T>::Dados(T altimetro, T pitot, T pitch, T roll, T yaw)
     {
@@ -105,7 +103,7 @@ namespace SimuladorDeVooSimples
         setGiroscopio(pitch, roll, yaw);
     }
 
-    // Contrutor padrão
+    // Construtor padrão
     template <typename T>
     Dados<T>::Dados()
     {
@@ -118,7 +116,7 @@ namespace SimuladorDeVooSimples
     template <typename T>
     Dados<T>::~Dados() {}
 
-    // Métodos de movinto das estruturas de controle
+    // Métodos de movimento das estruturas de controle
     template <typename T>
     void Dados<T>::movimentaAltimetro(T profundor) { altimetro -= (profundor); }
     template <typename T>

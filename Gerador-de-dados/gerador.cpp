@@ -3,18 +3,18 @@
 
 using namespace std;
 
-/*  
-    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares, 
-    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-
-    Altura maxima 1270 km
-    Velocidade de cruzeiro 222 km/h
-    Velocidade máxima 302 km/h
-    Comprimento 8,28 m
-    Envergadura 11 m
-    Altura 2,72 m
-    Área das asas 16,2 m²
-    Alongamento 7.5
+/* 
+   O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares,
+   monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
+ 
+   Altura máxima 1270 km
+   Velocidade de cruzeiro 222 km/h
+   Velocidade máxima 302 km/h
+   Comprimento 8,28 m
+   Envergadura 11 m
+   Altura 2,72 m
+   Área das asas 16,2 m²
+   Alongamento 7.5
 */
 
 int main()
@@ -24,7 +24,7 @@ int main()
 
     for (int i = 0; i <= 1270; i++)
     {
-        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altuma maxima com maximo de carga
+        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
             // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
             papel << i << " "; // Altura
@@ -33,7 +33,7 @@ int main()
             else
                 papel << "0"
                       << " ";                        // Velocidade para voar
-            papel << (i + (0.0055 * 30000)) << " ";  // Valor de pitch baseado na metade da envargadura em km vezes uma força
+            papel << (i + (0.0055 * 30000)) << " ";  // Valor de pitch baseado na metade da envergadura em km vezes uma força
             papel << (i + (0.00828 * 30000)) << " "; // O roll é o momento do comprimento em km vezes uma força
             papel << 0;                              // O momento em yaw é zero pois não tem giro nesse eixo
             papel << "\n";
@@ -61,7 +61,7 @@ int main()
             papel1 << v << " "; // Velocidade para voar
             tres++;
         }
-        papel1 << -1 * (i + (0.0055 * 300)) << " ";        // Valor de pitch baseado na metade da envargadura em km vezes uma força
+        papel1 << -1 * (i + (0.0055 * 300)) << " ";        // Valor de pitch baseado na metade da envergadura em km vezes uma força
         papel1 << -1 * (i + (0.00828 * 30000)) << " ";     // O roll é o momento do comprimento em km vezes uma força
         papel1 << -1 * (i + ((0.00828 + 0.0055) * 30000)); // O momento em yaw é zero pois não tem giro nesse eixo
         papel1 << "\n";
@@ -72,7 +72,7 @@ int main()
     float j = 0;
     for (int i = 0; i <= 1270; i++)
     {
-        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altuma maxima com maximo de carga
+        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
             // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
             papel2 << 1270 - i << " "; // Altura
@@ -83,7 +83,7 @@ int main()
             else
                 papel2 << (222 - j) << " "; // Velocidade para voar
             j += 0.75;
-            papel2 << -1 * (i + (0.0055 * 30000)) << " "; // Valor de pitch baseado na metade da envargadura em km vezes uma força
+            papel2 << -1 * (i + (0.0055 * 30000)) << " "; // Valor de pitch baseado na metade da envergadura em km vezes uma força
             papel2 << (i + (0.00828 * 30000)) << " ";     // O roll é o momento do comprimento em km vezes uma força
             papel2 << (i + ((0.0055 + 0.00828) * 30000)); // O momento em yaw é zero pois não tem giro nesse eixo
             papel2 << "\n";

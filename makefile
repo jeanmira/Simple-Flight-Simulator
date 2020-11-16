@@ -7,16 +7,16 @@
 # Objetivo: estabelecer um padrão de Makefile para a disciplina de programação 3
 #------------------------------------------------------------------------------#
 
-# Copilador
+# Compilador
 CC = g++ -std=c++17
 
-# Flags de copilacao
-FLAGS	= -W -Wall -pedantic -Wextra -Werror
+# Flags de compilação
+FLAGS   = -W -Wall -pedantic -Wextra -Werror
 
-# Variaveis do tipo execultavel
+# Variáveis do tipo executável
 O = *.o
 
-#Nome do execultavel
+# Nome do executável
 EXE = exe
 
 # Comando para limpar arquivo
@@ -25,21 +25,21 @@ RM = rm -rf
 # Comando para pegar todos os .cpp da pasta do Makefile
 APPNAME = $(wildcard *.cpp)
 
-# Copila e execulta o programa e depois apaga todos os arquivos .o e o
-# execultavel criado
+# Compila e executa o programa e depois apaga todos os arquivos .o e o
+# Executável criado
 all: run clean
 
 # Limpa o terminal de verdade
 limpa:
 	tput reset
 
-# Copila e execulta o programa
+# Compila e executa o programa
 run:
 	$(CC) $(FLAGS) -c $(APPNAME)
 	$(CC) $(FLAGS) -o $(EXE) $(O)
 	./$(EXE)
 
-# Apaga todos os arquivos .o e o execultavel criado
+# Apaga todos os arquivos .o é o executável criado
 clean:
 	$(RM) $(O)
 	$(RM) $(EXE)
