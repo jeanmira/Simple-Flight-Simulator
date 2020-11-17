@@ -102,5 +102,6 @@ namespace SimuladorDeVooSimples
         void imprimirDadosAviao(); // Imprime todos os dados do avião
         void imprimirDadosDados(); // Imprime todos os dados dos dados
     };
+
 } // namespace SimuladorDeVooSimples
 #endif
