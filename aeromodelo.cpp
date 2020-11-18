@@ -11,6 +11,9 @@ namespace SimuladorDeVooSimples
         setModeloTransmissor(modeloTransmissor);
     }
 
+    // Destrutor padrão
+    Aeromodelo::~Aeromodelo() { cout << "Aeromodelo Destruido!" << endl; }
+
     // Métodos para mudar as variaveis
     void Aeromodelo::setPreco(float preco) { this->preco = (preco < 0.0) ? 0.0 : preco; }
     void Aeromodelo::setCor(string cor) { this->cor = cor; }

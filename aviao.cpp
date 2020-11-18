@@ -48,7 +48,7 @@ namespace SimuladorDeVooSimples
     }
 
     // Destrutor padrão
-    Aviao::~Aviao() {}
+    Aviao::~Aviao() {cout << "Avião Destruido!" << endl;}
 
     // Métodos de incremento
     void Aviao::incrementaProfundor(float i) { this->servoProfundor += i; }
