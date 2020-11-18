@@ -39,6 +39,9 @@ namespace SimuladorDeVooSimples
         float servoAcelerador;              // Servo motor com abertura de 0 - 180° para acelerador
 
     public:
+        // Sobrecarga de operador ==
+        bool operator==(const Aviao &) const;
+
         // Métodos para mudar as variaveis
         void setModelo(string);
         void setMarca(string);

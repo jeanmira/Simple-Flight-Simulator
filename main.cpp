@@ -41,38 +41,56 @@ int main()
    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares,
    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
    */
+    svs::Aviao aeronave("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
+    aeronave.imprimirDadosAviao();                                                                 // Imprime as especificações do Avião
+
     svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
     novo.imprimirDadosAviao();
 
-    svs::Aeromodelo pequeno("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.0);
-    pequeno.printAeromodelo();
+    svs::Aeromodelo pequeno("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.55); // Cria um Aeromodelo com o construtor padrão
+    pequeno.printAeromodelo();                                                                                   // Imprime as especificações do Aeromodelo
+
+    if (aeronave == novo)
+        cout << "A aeronave [1]("
+             << aeronave.getModelo()
+             << ") e a aeronave [2](" << novo.getModelo()
+             << ") tem as mesmas especificações, portanto os modelos são iguais!"
+             << "\n"
+             << "\n";
+    else
+        cout << "A aeronave [1]("
+             << aeronave.getModelo()
+             << ") e a aeronave [2](" << novo.getModelo()
+             << ") não tem as mesmas especificações, portanto os modelos são diferentes!"
+             << "\n"
+             << "\n";
 
     // Abre os dados de decolagem e adiciona no novo avião
     ifstream arquivoDecolagem;
     arquivoDecolagem.open("Gerador-de-dados/dados-decolagem.txt");
-    leArquivos(arquivoDecolagem, novo);
+    leArquivos(arquivoDecolagem, aeronave);
 
-    novo.estabilizaAltura(0, 1120, -1); // Estabiliza a Altura (onde começa a análise, altura máxima, altura mínima)
-    novo.estabilizaMomentos(0, 0, 0);   // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
+    aeronave.estabilizaAltura(0, 1120, -1); // Estabiliza a Altura (onde começa a análise, altura máxima, altura mínima)
+    aeronave.estabilizaMomentos(0, 0, 0);   // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
 
     //Abre os dados de cruzeiro e adiciona no novo avião
     ifstream arquivoCruzeiro;
     arquivoCruzeiro.open("Gerador-de-dados/dados-cruzeiro.txt");
-    leArquivos(arquivoCruzeiro, novo);
+    leArquivos(arquivoCruzeiro, aeronave);
 
-    novo.estabilizaAltura(255, 1000, 900);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima )
-    novo.estabilizaVelocidade(255, 222, 216); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade mínima )
-    novo.estabilizaMomentos(255, 0, 0);       // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
+    aeronave.estabilizaAltura(255, 1000, 900);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima )
+    aeronave.estabilizaVelocidade(255, 222, 216); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade mínima )
+    aeronave.estabilizaMomentos(255, 0, 0);       // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
 
     //Abre os dados de cruzeiro e adiciona no novo avião
     ifstream arquivoPouso;
     arquivoPouso.open("Gerador-de-dados/dados-pouso.txt");
-    leArquivos(arquivoPouso, novo);
+    leArquivos(arquivoPouso, aeronave);
 
-    novo.estabilizaAltura(1255, 800, -1);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
-    novo.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade máxima, velocidade mínima)
-    novo.estabilizaMomentos(1255, 0, 0);     // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
-    novo.imprimirDadosDados();               // Imprime os dados do avião
+    aeronave.estabilizaAltura(1255, 800, -1);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
+    aeronave.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade máxima, velocidade mínima)
+    aeronave.estabilizaMomentos(1255, 0, 0);     // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
+    aeronave.imprimirDadosDados();               // Imprime os dados do avião
 
     return 0;
 }

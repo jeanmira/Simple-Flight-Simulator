@@ -2,6 +2,15 @@
 
 namespace SimuladorDeVooSimples
 {
+    // Sobrecarga de operador ==
+    bool Aviao::operator==(const Aviao &aviaoDeComparacao) const
+    {
+        if (modelo == aviaoDeComparacao.modelo && marca == aviaoDeComparacao.marca && servoProfundor == aviaoDeComparacao.servoProfundor && servoLeme == aviaoDeComparacao.servoLeme && servoAileronEs == aviaoDeComparacao.servoAileronEs && servoAileronDi == aviaoDeComparacao.servoAileronDi && servoAcelerador == aviaoDeComparacao.servoAcelerador)
+            return true;
+        else
+            return false;
+    }
+
     // Métodos para mudar as variaveis
     void Aviao::setModelo(string modelo) { this->modelo = modelo; }
     void Aviao::setMarca(string marca) { this->marca = marca; }
@@ -48,7 +57,7 @@ namespace SimuladorDeVooSimples
     }
 
     // Destrutor padrão
-    Aviao::~Aviao() {cout << "Avião Destruido!" << endl;}
+    Aviao::~Aviao() { cout << "Avião Destruido!" << endl; }
 
     // Métodos de incremento
     void Aviao::incrementaProfundor(float i) { this->servoProfundor += i; }
