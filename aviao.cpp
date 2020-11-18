@@ -365,8 +365,8 @@ namespace SimuladorDeVooSimples
         //---------------------------------------------------------------------------------------------------------------------------
     }
 
-    // Imprimi todos os dados do avião
-    void Aviao::imprimirDadosAviao()
+    // Imprime todos os dados do avião aplicando os conceitos de polimorfismo
+    void Aviao::imprimirEspecificacoes() const
     {
         cout << endl
              << "Modelo: " << this->modelo << endl
@@ -381,6 +381,15 @@ namespace SimuladorDeVooSimples
     // Imprime todos os dados dos dados
     void Aviao::imprimirDadosDados()
     {
+        cout << "Dados do modelo " << getModelo() << endl;
+        cout << "---------------------" << endl
+             << "A -> Altura" << endl
+             << "V -> Velocidade" << endl
+             << "Mp -> Momento pitch" << endl
+             << "Mr -> Momento roll" << endl
+             << "My -> Momento yaw" << endl
+             << "---------------------" << endl;
+        cout << "[i] A V Mp Mr My" << endl;
         for (int i = 0; i < (int)dadosDoModelo.size(); i++)
         {
             cout << "[" << i << "] " << dadosDoModelo[i].getAltimetro() << " "

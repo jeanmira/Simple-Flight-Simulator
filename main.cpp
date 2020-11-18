@@ -42,10 +42,10 @@ int main()
    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
    */
     svs::Aviao aeronave("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
-    aeronave.imprimirDadosAviao();                                                                 // Imprime as especificações do Avião
+    aeronave.imprimirEspecificacoes();                                                             // Imprime todos os dados do avião();                                                                 // Imprime as especificações do Avião
 
     svs::Aeromodelo miniAeronave("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.55); // Cria um Aeromodelo com o construtor padrão
-    miniAeronave.printAeromodelo();                                                                                   // Imprime as especificações do Aeromodelo
+    miniAeronave.imprimirEspecificacoes();                                                                            // Imprime as especificações do Aeromodelo
 
     // Verifica se as duas aeronavem são iguais, utilizando do recurso de sobrecarga de operadores
     if (aeronave == miniAeronave)

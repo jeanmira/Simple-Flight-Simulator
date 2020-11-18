@@ -34,8 +34,8 @@ namespace SimuladorDeVooSimples
         string getCor();
         string getModeloTransmissor();
 
-        // Imprime todos os dados do aeromodelo
-        void printAeromodelo();
+        // Imprime todos os dados do aeromodelo aplicando os conceitos de polimorfismo
+        virtual void imprimirEspecificacoes() const;
     };
 } // namespace SimuladorDeVooSimples
 

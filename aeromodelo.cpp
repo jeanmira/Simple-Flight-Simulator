@@ -24,10 +24,10 @@ namespace SimuladorDeVooSimples
     string Aeromodelo::getCor() { return this->cor; }
     string Aeromodelo::getModeloTransmissor() { return this->modeloTransmissor; }
 
-    // Imprime todos os dados do aeromodelo
-    void Aeromodelo::printAeromodelo()
+    // Imprime todos os dados do aeromodelo aplicando os conceitos de polimorfismo 
+    void Aeromodelo::imprimirEspecificacoes() const
     {
-        Aviao::imprimirDadosAviao();
+        Aviao::imprimirEspecificacoes();
         cout << "Cor: " << this->cor << endl
              << "Valor: " << this->preco << endl
              << endl;

@@ -102,8 +102,8 @@ namespace SimuladorDeVooSimples
         void estabilizaVelocidade(int i, float max, float min);
         void estabilizaMomentos(int i, float max, float min);
 
-        void imprimirDadosAviao(); // Imprime todos os dados do avião
-        void imprimirDadosDados(); // Imprime todos os dados dos dados
+        virtual void imprimirEspecificacoes() const; /// Imprime todos os dados do avião aplicando os conceitos de polimorfismo
+        void imprimirDadosDados();                   // Imprime todos os dados dos dados
 
         void setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
     };
