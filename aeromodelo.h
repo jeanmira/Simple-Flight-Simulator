@@ -3,48 +3,40 @@
 
 #include <iostream>
 #include <string>
+#include "aviao.h"
+
 using namespace std;
 
-// Classe Aeromodelo herda classe Aviao
-class Aeromodelo : public Aviao
+namespace SimuladorDeVooSimples
 {
-private:
-    float preco;
-    string cor;
-    string modeloTransmissor;
+    // Classe Aeromodelo herda classe Aviao
+    class Aeromodelo : public Aviao
+    {
+    private:
+        float preco;              // Valor do aeromodelo
+        string cor;               // Cor predominante do aeromodelo
+        string modeloTransmissor; // Modelo de transmisor do aeromodelo
 
-public:
-    // Construtor padrão
-    Aeromodelo() : modelo{"Cessna 172 Skyhawk"}, marca{"Cessna Aircraft Company"}, servoProfundor{0.0}, servoLeme{0.0}, servoAileronEs{0.0}, servoAileronDi{0.0}, servoAcelerador{0.0} {};
-    Aeromodelo(const string &, const string &, float = 0.0, float = 0.0, float = 0.0, float = 0.0, float = 0.0);
-    void setPreco();
-    float getPreco(float);
-    void setCor();
-    string getCor(string);
-    void setModeloTransmissor();
-    string getModeloTransmissor(string);
-}
+    public:
+        // Construtor padrão
+        //Aeromodelo() : modelo{"DESCONHECIDO"}, marca{"DESCONHECIDA"}, cor{"DESCONHECIDA"}, modeloTransmissor{"DESCONHECIDA"}, servoProfundor{0.0}, servoLeme{0.0}, servoAileronEs{0.0}, servoAileronDi{0.0}, servoAcelerador{0.0}, preco{0.0} {};
+
+        // Construtor que inicializa os parâmetros
+        Aeromodelo(string, string, string, string, float = 0.0, float = 0.0, float = 0.0, float = 0.0, float = 0.0, float = 0.0);
+
+        // Métodos para mudar as variaveis do aeromodelo
+        void setPreco(float);
+        void setCor(string);
+        void setModeloTransmissor(string);
+
+        // Métodos para saber os valores das variáveis do aeromodelo
+        float getPreco();
+        string getCor();
+        string getModeloTransmissor();
+
+        // Imprime todos os dados do aeromodelo
+        void printAeromodelo(); 
+    };
+} // namespace SimuladorDeVooSimples
 
 #endif
-
-/* // Figura 12.10: BasePlusCommissionEmployee.h
-// Classe BasePlusCommissionEmployee derivada da classe
-// CommissionEmployee.
-#ifndef BASEPLUS_H
-#define BASEPLUS_H
-#include <string> // classe string padrão C++
-using std::string;
-#include “CommissionEmployee.h” // declaração da classe CommissionEmployee
-class BasePlusCommissionEmployee : public CommissionEmployee
-{
-public:
-    BasePlusCommissionEmployee(const string &, const string &,
-                               const string &, double = 0.0, double = 0.0, double = 0.0);
-    void setBaseSalary(double);   // configura o salário-base
-    double getBaseSalary() const; // retorna o salário-base
-    double earnings() const;      // calcula os rendimentos
-    void print() const;           // imprime o objeto BasePlusCommissionEmployee
-private:
-    double baseSalary; // salário-base
-};                     // fim da classe BasePlusCommissionEmployee
-#endif */

@@ -3,6 +3,7 @@
 #include <sstream>
 #include "aviao.h"
 #include "dados.h"
+#include "aeromodelo.h"
 
 namespace svs = SimuladorDeVooSimples;
 
@@ -42,6 +43,9 @@ int main()
    */
     svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
     novo.imprimirDadosAviao();
+
+    svs::Aeromodelo pequeno("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.0);
+    pequeno.printAeromodelo();
 
     // Abre os dados de decolagem e adiciona no novo avião
     ifstream arquivoDecolagem;

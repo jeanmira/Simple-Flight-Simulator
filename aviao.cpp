@@ -1,10 +1,8 @@
 #include "aviao.h"
 
-using namespace std;
-
 namespace SimuladorDeVooSimples
 {
-    //Metodos para mudar as variaveis
+    // Métodos para mudar as variaveis
     void Aviao::setModelo(string modelo) { this->modelo = modelo; }
     void Aviao::setMarca(string marca) { this->marca = marca; }
     void Aviao::setServoProfundor(float servoProfundor) { this->servoProfundor = servoProfundor; }
@@ -365,8 +363,7 @@ namespace SimuladorDeVooSimples
              << "Servo Leme: " << this->servoLeme << "\n"
              << "Servo Aileron Esquerdo: " << this->servoAileronEs << "\n"
              << "Servo Aileron Direito: " << this->servoAileronDi << "\n"
-             << "Servo Acelerador: " << this->servoAcelerador << "\n"
-             << "\n";
+             << "Servo Acelerador: " << this->servoAcelerador << "\n";
     }
 
     // Imprime todos os dados dos dados
@@ -379,8 +376,8 @@ namespace SimuladorDeVooSimples
                  << dadosDoModelo[i].getGiroscopio_pitch() << " "
                  << dadosDoModelo[i].getGiroscopio_roll() << " "
                  << dadosDoModelo[i].getGiroscopio_yaw() << "\n";
-            if (i == 254 || i == 1254)
-                cout << "\n";
+            /* if (i == 254 || i == 1254)
+                cout << "\n"; */
         }
         cout << "\n";
     }
