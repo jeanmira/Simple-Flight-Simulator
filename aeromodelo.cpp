@@ -28,9 +28,9 @@ namespace SimuladorDeVooSimples
     void Aeromodelo::printAeromodelo()
     {
         Aviao::imprimirDadosAviao();
-        cout << "Cor: " << this->cor << "\n"
-             << "Valor: " << this->preco << "\n"
-             << "\n";
+        cout << "Cor: " << this->cor << endl
+             << "Valor: " << this->preco << endl
+             << endl;
     }
 
 } // namespace SimuladorDeVooSimples

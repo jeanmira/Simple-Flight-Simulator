@@ -53,15 +53,15 @@ int main()
              << aeronave.getModelo()
              << ") e a aeronave [2] (" << miniAeronave.getModelo()
              << ") tem as mesmas especificações, portanto os modelos são iguais!"
-             << "\n"
-             << "\n";
+             << endl
+             << endl;
     else
         cout << "A aeronave [1] ("
              << aeronave.getModelo()
              << ") e a aeronave [2] (" << miniAeronave.getModelo()
              << ") não tem as mesmas especificações, portanto os modelos são diferentes!"
-             << "\n"
-             << "\n";
+             << endl
+             << endl;
 
     // Abre os dados de decolagem e adiciona no novo avião
     ifstream arquivoDecolagem;

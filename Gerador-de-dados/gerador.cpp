@@ -36,7 +36,7 @@ int main()
             papel << (i + (0.0055 * 30000)) << " ";  // Valor de pitch baseado na metade da envergadura em km vezes uma força
             papel << (i + (0.00828 * 30000)) << " "; // O roll é o momento do comprimento em km vezes uma força
             papel << 0;                              // O momento em yaw é zero pois não tem giro nesse eixo
-            papel << "\n";
+            papel << endl;
         }
     }
     cout << endl; // Pula uma linha no fim
@@ -64,7 +64,7 @@ int main()
         papel1 << -1 * (i + (0.0055 * 300)) << " ";        // Valor de pitch baseado na metade da envergadura em km vezes uma força
         papel1 << -1 * (i + (0.00828 * 30000)) << " ";     // O roll é o momento do comprimento em km vezes uma força
         papel1 << -1 * (i + ((0.00828 + 0.0055) * 30000)); // O momento em yaw é zero pois não tem giro nesse eixo
-        papel1 << "\n";
+        papel1 << endl;
     }
     cout << endl; // Pula uma linha no fim
     //-----------------------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ int main()
             papel2 << -1 * (i + (0.0055 * 30000)) << " "; // Valor de pitch baseado na metade da envergadura em km vezes uma força
             papel2 << (i + (0.00828 * 30000)) << " ";     // O roll é o momento do comprimento em km vezes uma força
             papel2 << (i + ((0.0055 + 0.00828) * 30000)); // O momento em yaw é zero pois não tem giro nesse eixo
-            papel2 << "\n";
+            papel2 << endl;
         }
     }
     cout << endl; // Pula uma linha no fim

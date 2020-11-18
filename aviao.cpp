@@ -368,14 +368,14 @@ namespace SimuladorDeVooSimples
     // Imprimi todos os dados do avião
     void Aviao::imprimirDadosAviao()
     {
-        cout << "\n"
-             << "Modelo: " << this->modelo << "\n"
-             << "Marca: " << this->marca << "\n"
-             << "Servo Profundor: " << this->servoProfundor << "\n"
-             << "Servo Leme: " << this->servoLeme << "\n"
-             << "Servo Aileron Esquerdo: " << this->servoAileronEs << "\n"
-             << "Servo Aileron Direito: " << this->servoAileronDi << "\n"
-             << "Servo Acelerador: " << this->servoAcelerador << "\n";
+        cout << endl
+             << "Modelo: " << this->modelo << endl
+             << "Marca: " << this->marca << endl
+             << "Servo Profundor: " << this->servoProfundor << endl
+             << "Servo Leme: " << this->servoLeme << endl
+             << "Servo Aileron Esquerdo: " << this->servoAileronEs << endl
+             << "Servo Aileron Direito: " << this->servoAileronDi << endl
+             << "Servo Acelerador: " << this->servoAcelerador << endl;
     }
 
     // Imprime todos os dados dos dados
@@ -387,11 +387,11 @@ namespace SimuladorDeVooSimples
                  << dadosDoModelo[i].getPitot() << " "
                  << dadosDoModelo[i].getGiroscopio_pitch() << " "
                  << dadosDoModelo[i].getGiroscopio_roll() << " "
-                 << dadosDoModelo[i].getGiroscopio_yaw() << "\n";
+                 << dadosDoModelo[i].getGiroscopio_yaw() << endl;
             /* if (i == 254 || i == 1254)
-                cout << "\n"; */
+                cout << endl; */
         }
-        cout << "\n";
+        cout << endl;
     }
     // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
     void Aviao::setServos()
