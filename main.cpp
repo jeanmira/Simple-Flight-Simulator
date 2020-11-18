@@ -44,23 +44,21 @@ int main()
     svs::Aviao aeronave("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
     aeronave.imprimirDadosAviao();                                                                 // Imprime as especificações do Avião
 
-    svs::Aviao novo("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
-    novo.imprimirDadosAviao();
+    svs::Aeromodelo miniAeronave("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.55); // Cria um Aeromodelo com o construtor padrão
+    miniAeronave.printAeromodelo();                                                                                   // Imprime as especificações do Aeromodelo
 
-    svs::Aeromodelo pequeno("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.55); // Cria um Aeromodelo com o construtor padrão
-    pequeno.printAeromodelo();                                                                                   // Imprime as especificações do Aeromodelo
-
-    if (aeronave == novo)
-        cout << "A aeronave [1]("
+    // Verifica se as duas aeronavem são iguais, utilizando do recurso de sobrecarga de operadores
+    if (aeronave == miniAeronave)
+        cout << "A aeronave [1] ("
              << aeronave.getModelo()
-             << ") e a aeronave [2](" << novo.getModelo()
+             << ") e a aeronave [2] (" << miniAeronave.getModelo()
              << ") tem as mesmas especificações, portanto os modelos são iguais!"
              << "\n"
              << "\n";
     else
-        cout << "A aeronave [1]("
+        cout << "A aeronave [1] ("
              << aeronave.getModelo()
-             << ") e a aeronave [2](" << novo.getModelo()
+             << ") e a aeronave [2] (" << miniAeronave.getModelo()
              << ") não tem as mesmas especificações, portanto os modelos são diferentes!"
              << "\n"
              << "\n";

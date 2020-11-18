@@ -84,6 +84,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião na altura
     void Aviao::estabilizaAltura(int i, float max, float min)
     {
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         int acesso = 0;
         // Verifica a taxa de variação
         float nivel = (dadosDoModelo[i + 1].getAltimetro() - dadosDoModelo[i].getAltimetro());
@@ -133,6 +134,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião na velocidade
     void Aviao::estabilizaVelocidade(int i, float max, float min)
     {
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         int acesso = 0;
         // Verifica a taxa de variação
         float nivel = (dadosDoModelo[i + 1].getPitot() - dadosDoModelo[i].getPitot());
@@ -182,6 +184,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião nos seus momentos
     void Aviao::estabilizaMomentos(int i, float max, float min)
     {
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         //---------------------------------------------------------------------------------------------------------------------------
         // ESTABILIZA O PITCH
         //---------------------------------------------------------------------------------------------------------------------------
@@ -389,5 +392,19 @@ namespace SimuladorDeVooSimples
                 cout << "\n"; */
         }
         cout << "\n";
+    }
+    // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+    void Aviao::setServos()
+    {
+        if (servoProfundor != 0)
+            servoProfundor = 0;
+        if (servoLeme != 0)
+            servoLeme = 0;
+        if (servoAileronEs != 0)
+            servoAileronEs = 0;
+        if (servoAileronDi != 0)
+            servoAileronDi = 0;
+        if (servoAcelerador != 0)
+            servoAcelerador = 0;
     }
 } // namespace SimuladorDeVooSimples
