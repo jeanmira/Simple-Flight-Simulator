@@ -9,6 +9,7 @@ Para nossa análise vamos considerar o avião **Cessna 172 Skyhawk** e iremos an
 
 A seguir podemos ver o diagrama de blocos simplificando o funcionamento do código:
 
+
 Figura 1 - Diagrama de blocos do funcionamento do código.
 ![Diagrama de Blocos](https://github.com/jeanmira/Trabalho-Final-CPP/blob/master/Imagens/diagrama.png)
 
