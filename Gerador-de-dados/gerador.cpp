@@ -26,7 +26,7 @@ int main()
     {
         if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
-            // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
+            // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel << i << " "; // Altura
             if (i != 0)
                 papel << (200 + (i * 102 / float(1270))) << " "; // Velocidade para voar
@@ -46,7 +46,7 @@ int main()
     float v = 302;
     for (int i = 0; i < 1000; i++)
     {
-        // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
+        // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
 
         papel1 << (1270 - i) << " "; // Altura
         if (tres == 3 || tres == 1)
@@ -74,7 +74,7 @@ int main()
     {
         if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
-            // Altura(km) velocidade(km/h) pitch(N/m) roll(N/m) yaw(N/m)
+            // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel2 << 1270 - i << " "; // Altura
             if (j == 0)
             {
