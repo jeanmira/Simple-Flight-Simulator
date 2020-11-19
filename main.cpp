@@ -68,8 +68,8 @@ int main()
     arquivoDecolagem.open("Gerador-de-dados/dados-decolagem.txt");
     leArquivos(arquivoDecolagem, aeronave);
 
-    aeronave.estabilizaAltura(0, 1120, -1); // Estabiliza a Altura (onde começa a análise, altura máxima, altura mínima)
-    aeronave.estabilizaMomentos(0, 0, 0);   // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
+    aeronave.estabilizaAltura(0, 1120, 0); // Estabiliza a Altura (onde começa a análise, altura máxima, altura mínima)
+    aeronave.estabilizaMomentos(0, 0, 0);  // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
 
     //Abre os dados de cruzeiro e adiciona no novo avião
     ifstream arquivoCruzeiro;
@@ -85,7 +85,7 @@ int main()
     arquivoPouso.open("Gerador-de-dados/dados-pouso.txt");
     leArquivos(arquivoPouso, aeronave);
 
-    aeronave.estabilizaAltura(1255, 800, -1);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
+    aeronave.estabilizaAltura(1255, 800, 0);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
     aeronave.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade máxima, velocidade mínima)
     aeronave.estabilizaMomentos(1255, 0, 0);     // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
     aeronave.imprimirDadosDados();               // Imprime os dados do avião
