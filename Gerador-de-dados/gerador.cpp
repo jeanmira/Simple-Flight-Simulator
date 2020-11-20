@@ -7,7 +7,7 @@ using namespace std;
    O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares,
    monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
  
-   Altura máxima 1270 km
+   Altura máxima 1270 m
    Velocidade de cruzeiro 222 km/h
    Velocidade máxima 302 km/h
    Comprimento 8,28 m
@@ -26,7 +26,7 @@ int main()
     {
         if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
-            // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
+            // Altura(m) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel << i << " "; // Altura
             if (i != 0)
                 papel << (200 + (i * 102 / float(1270))) << " "; // Velocidade para voar
@@ -46,7 +46,7 @@ int main()
     float v = 302;
     for (int i = 0; i < 1000; i++)
     {
-        // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
+        // Altura(m) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
 
         papel1 << (1270 - i) << " "; // Altura
         if (tres == 3 || tres == 1)
@@ -74,7 +74,7 @@ int main()
     {
         if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
         {
-            // Altura(km) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
+            // Altura(m) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel2 << 1270 - i << " "; // Altura
             if (j == 0)
             {
