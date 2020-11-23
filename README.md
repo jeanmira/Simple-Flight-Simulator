@@ -12,10 +12,6 @@ A seguir podemos ver o diagrama de blocos simplificando o funcionamento do códi
 
 Figura 1 - Diagrama de blocos do funcionamento do código.
 ![Diagrama de Blocos](https://github.com/jeanmira/Trabalho-Final-CPP/blob/master/Imagens/diagrama.png)
-
-### Pré-requisitos para executar no sistema operacional UBUNTU | g++ 7 | coding utf-8 :
-    • Pacotes:
-        sudo apt-get install build-essential
         
 ###    Funcionamento da obtenção de dados:
     • altimetro(h) onde h e a altura referente ao nível do mar;
@@ -24,6 +20,10 @@ Figura 1 - Diagrama de blocos do funcionamento do código.
 
    Figura 2 - pitch, roll e yaw em uma aeronave.
    ![Eixos](https://github.com/jeanmira/Trabalho-Final-CPP/blob/master/Imagens/eixos.png)
+   
+### Pré-requisitos para executar no sistema operacional UBUNTU | g++ 7 | coding utf-8 :
+    • Pacotes:
+        sudo apt-get install build-essential
 
 #### Desenvolvedores:
 Jean Marcelo Mira Junior - 16102369 | E-mail: jeandemira@gmail.com
