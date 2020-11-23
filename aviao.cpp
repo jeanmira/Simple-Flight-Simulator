@@ -397,8 +397,6 @@ namespace SimuladorDeVooSimples
                  << dadosDoModelo[i].getGiroscopio_pitch() << " "
                  << dadosDoModelo[i].getGiroscopio_roll() << " "
                  << dadosDoModelo[i].getGiroscopio_yaw() << endl;
-            /* if (i == 254 || i == 1254)
-                cout << endl; */
         }
         cout << endl;
     }

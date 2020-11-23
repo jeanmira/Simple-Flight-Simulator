@@ -13,7 +13,7 @@ namespace SimuladorDeVooSimples
     class Aeromodelo : public Aviao
     {
     private:
-        double preco;              // Valor do aeromodelo
+        double preco;             // Valor do aeromodelo
         string cor;               // Cor predominante do aeromodelo
         string modeloTransmissor; // Modelo de transmisor do aeromodelo
 

@@ -1,8 +1,8 @@
 #------------------------------- /usr/bin/g++-7 -------------------------------#
 #------------------------------- coding: utf-8 --------------------------------#
 # Criado por: Jean Marcelo Mira Junior
-# Versão: 1.1
-# Criado em: 8/10/2020
+# Versão: 1.2
+# Criado em: 23/11/2020
 # Sistema operacional: Linux - Ubuntu 20.04.1 LTS
 # Objetivo: estabelecer um padrão de Makefile para a disciplina de programação 3
 #------------------------------------------------------------------------------#
