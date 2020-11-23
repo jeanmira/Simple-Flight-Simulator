@@ -22,7 +22,7 @@ void leArquivos(ifstream &arquivo, svs::Aviao &novo)
         while (fluxo >> aux)
             numFloat.push_back(stof(aux)); // Pega os valores da string separa convertido para float e coloca no vetor float temporário
 
-        for (int i = 0; i <= (int)numFloat.size(); i++)
+        for (int i = 0; i <= static_cast<int>(numFloat.size()); i++)
         {
             if (i != 0 && (i % 5) == 0)
             {
@@ -85,7 +85,7 @@ int main()
     arquivoPouso.open("Gerador-de-dados/dados-pouso.txt");
     leArquivos(arquivoPouso, aeronave);
 
-    aeronave.estabilizaAltura(1255, 800, 0);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
+    aeronave.estabilizaAltura(1255, 800, 0);     // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima)
     aeronave.estabilizaVelocidade(1255, 200, 0); // Estabiliza a Velocidade (onde começa a analise, velocidade máxima, velocidade mínima)
     aeronave.estabilizaMomentos(1255, 0, 0);     // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
     aeronave.imprimirDadosDados();               // Imprime os dados do avião

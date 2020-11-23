@@ -92,7 +92,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o ideal
-        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getAltimetro() < min)
@@ -142,7 +142,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o ideal
-        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getPitot() < min)
@@ -195,7 +195,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do pitch ideal que e 0
-        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_pitch() < min)
@@ -254,7 +254,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do roll ideal que e 0
-        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_roll() < min)
@@ -315,7 +315,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do yaw ideal que e 0
-        for (int j = i; j < (int)dadosDoModelo.size(); j++)
+        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_yaw() < min)
@@ -390,7 +390,7 @@ namespace SimuladorDeVooSimples
              << "My -> Momento yaw" << endl
              << "---------------------" << endl;
         cout << "[i] A V Mp Mr My" << endl;
-        for (int i = 0; i < (int)dadosDoModelo.size(); i++)
+        for (int i = 0; i < static_cast<int>(dadosDoModelo.size()); i++)
         {
             cout << "[" << i << "] " << dadosDoModelo[i].getAltimetro() << " "
                  << dadosDoModelo[i].getPitot() << " "

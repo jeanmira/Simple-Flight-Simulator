@@ -11,8 +11,8 @@
 CC = g++ -std=c++17
 
 # Flags de compilação
-FLAGS   = -W -Wall -pedantic -Wextra -Werror
-
+FLAGS   = -W -Wall -pedantic -Wextra -Werror -Wcast-align -Wunused -Wold-style-cast -Wconversion
+# -Wshadow 
 # Variáveis do tipo executável
 O = *.o
 
