@@ -1,6 +1,6 @@
 # **Trabalho Final de Programação III**
 
-[![Generic badge](https://img.shields.io/badge/Status-Construção-<COLOR>.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Status-Finalizado-<red>.svg)](https://shields.io/)
 
 ##  Descrição do Trabalho:
 Para o trabalho final da disciplina  de programação 3 decidimos elaborar um sistema de estabilização de uma aeronave baseado em sensores como giroscópio, altímetro e o tubo de pitot que dão parâmetros para decidir o comportamento dos servomotores da aeronave, os servomotores servem para movimentar as superfícies de comando e portanto estabilizado a aeronave, o programa deve ser capaz de estabilizar a aeronave buscando sempre voltar ao seu estado de perfeita estabilidade. Tendo assim um arquivo .txt padrão para decolagem, voo de cruzeiro e pouso que são gerados através de um programa também desenvolvido neste projeto.
