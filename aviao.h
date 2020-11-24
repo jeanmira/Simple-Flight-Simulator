@@ -49,18 +49,18 @@ namespace SimuladorDeVooSimples
         void insereDados(Dados<float> temp);
 
         // Métodos para mudar as variaveis dos Dados
-        void setDadosAltimetro(int, float);
-        void setDadosPitot(int, float);
-        void setDadosPitch(int, float);
-        void setDadosRoll(int, float);
-        void setDadosYaw(int, float);
+        void setDadosAltimetro(long unsigned int, float);
+        void setDadosPitot(long unsigned int, float);
+        void setDadosPitch(long unsigned int, float);
+        void setDadosRoll(long unsigned int, float);
+        void setDadosYaw(long unsigned int, float);
 
         // Métodos para saber os valores das variáveis dos Dados
-        float getDadosAltimetro(int);
-        float getDadosPitot(int);
-        float getDadosPitch(int);
-        float getDadosRoll(int);
-        float getDadosYaw(int);
+        float getDadosAltimetro(long unsigned int);
+        float getDadosPitot(long unsigned int);
+        float getDadosPitch(long unsigned int);
+        float getDadosRoll(long unsigned int);
+        float getDadosYaw(long unsigned int);
 
         // Métodos para saber os valores das variáveis
         string getModelo();
@@ -94,9 +94,9 @@ namespace SimuladorDeVooSimples
         void decrementaAcelerador(float i);
 
         // Métodos da classe
-        void estabilizaAltura(int i, float max, float min);
-        void estabilizaVelocidade(int i, float max, float min);
-        void estabilizaMomentos(int i, float max, float min);
+        void estabilizaAltura(long unsigned int i, float max, float min);
+        void estabilizaVelocidade(long unsigned int i, float max, float min);
+        void estabilizaMomentos(long unsigned int i, float max, float min);
 
         virtual void imprimirEspecificacoes() const; /// Imprime todos os dados do avião aplicando os conceitos de polimorfismo
         void imprimirDadosDados();                   // Imprime todos os dados dos dados

@@ -7,6 +7,10 @@
 
 namespace svs = SimuladorDeVooSimples;
 
+// Declaração da função que lê e guarda dentro dos da classe Dados os dados do arquivo
+void leArquivos(ifstream &arquivo, svs::Aviao &novo);
+
+// Função que lê e guarda dentro dos da classe Dados os dados do arquivo
 void leArquivos(ifstream &arquivo, svs::Aviao &novo)
 {
     if (!arquivo.is_open())
@@ -15,14 +19,14 @@ void leArquivos(ifstream &arquivo, svs::Aviao &novo)
     }
     else
     {
-        vector<float> numFloat;
-        string aux;                                                                                // Auxiliar para pegar uma string por vez
-        string dadosTemporario((istreambuf_iterator<char>(arquivo)), istreambuf_iterator<char>()); // Coloca todo arquivo em uma string
-        istringstream fluxo{dadosTemporario};                                                      // Classe de fluxo de entrada para operar uma strings
+        static vector<float> numFloat;
+        static string aux;                                                                                // Auxiliar para pegar uma string por vez
+        static string dadosTemporario((istreambuf_iterator<char>(arquivo)), istreambuf_iterator<char>()); // Coloca todo arquivo em uma string
+        static istringstream fluxo{dadosTemporario};                                                      // Classe de fluxo de entrada para operar uma strings
         while (fluxo >> aux)
             numFloat.push_back(stof(aux)); // Pega os valores da string separa convertido para float e coloca no vetor float temporário
 
-        for (int i = 0; i <= static_cast<int>(numFloat.size()); i++)
+        for (long unsigned int i = 0; i <= static_cast<long unsigned int>(numFloat.size()); i++)
         {
             if (i != 0 && (i % 5) == 0)
             {

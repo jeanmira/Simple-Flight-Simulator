@@ -22,11 +22,11 @@ namespace SimuladorDeVooSimples
     void Aviao::insereDados(Dados<float> temp) { dadosDoModelo.push_back(temp); }
 
     // Métodos para mudar as variáveis dos Dados
-    void Aviao::setDadosAltimetro(int i, float altimetro) { dadosDoModelo[i].setAltimetro(altimetro); }
-    void Aviao::setDadosPitot(int i, float pitot) { dadosDoModelo[i].setPitot(pitot); }
-    void Aviao::setDadosPitch(int i, float pitch) { dadosDoModelo[i].setPitch(pitch); }
-    void Aviao::setDadosRoll(int i, float roll) { dadosDoModelo[i].setRoll(roll); }
-    void Aviao::setDadosYaw(int i, float yaw) { dadosDoModelo[i].setYaw(yaw); }
+    void Aviao::setDadosAltimetro(long unsigned int i, float altimetro) { dadosDoModelo[i].setAltimetro(altimetro); }
+    void Aviao::setDadosPitot(long unsigned int i, float pitot) { dadosDoModelo[i].setPitot(pitot); }
+    void Aviao::setDadosPitch(long unsigned int i, float pitch) { dadosDoModelo[i].setPitch(pitch); }
+    void Aviao::setDadosRoll(long unsigned int i, float roll) { dadosDoModelo[i].setRoll(roll); }
+    void Aviao::setDadosYaw(long unsigned int i, float yaw) { dadosDoModelo[i].setYaw(yaw); }
 
     // Métodos para saber os valores das variáveis
     string Aviao::getModelo() { return this->modelo; }
@@ -38,11 +38,11 @@ namespace SimuladorDeVooSimples
     float Aviao::getServoAcelerador() const { return this->servoAcelerador; }
 
     // Métodos para saber os valores das variáveis dos Dados
-    float Aviao::getDadosAltimetro(int i) { return this->dadosDoModelo[i].getAltimetro(); }
-    float Aviao::getDadosPitot(int i) { return this->dadosDoModelo[i].getPitot(); }
-    float Aviao::getDadosPitch(int i) { return this->dadosDoModelo[i].getGiroscopio_pitch(); }
-    float Aviao::getDadosRoll(int i) { return this->dadosDoModelo[i].getGiroscopio_roll(); }
-    float Aviao::getDadosYaw(int i) { return this->dadosDoModelo[i].getGiroscopio_yaw(); }
+    float Aviao::getDadosAltimetro(long unsigned int i) { return this->dadosDoModelo[i].getAltimetro(); }
+    float Aviao::getDadosPitot(long unsigned int i) { return this->dadosDoModelo[i].getPitot(); }
+    float Aviao::getDadosPitch(long unsigned int i) { return this->dadosDoModelo[i].getGiroscopio_pitch(); }
+    float Aviao::getDadosRoll(long unsigned int i) { return this->dadosDoModelo[i].getGiroscopio_roll(); }
+    float Aviao::getDadosYaw(long unsigned int i) { return this->dadosDoModelo[i].getGiroscopio_yaw(); }
 
     // Construtor que inicializa os parâmetros
     Aviao::Aviao(string n_modelo, string n_marca, float n_servoProfundor, float n_servoLeme, float n_servoAileronEs, float n_servoAileronDi, float n_servoAcelerador)
@@ -82,7 +82,7 @@ namespace SimuladorDeVooSimples
     void Aviao::decrementaAcelerador(float i) { this->servoAcelerador -= i; }
 
     // Métodos da classe que estabiliza o avião na altura
-    void Aviao::estabilizaAltura(int i, float max, float min)
+    void Aviao::estabilizaAltura(long unsigned int i, float max, float min)
     {
         setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         int acesso = 0;
@@ -92,7 +92,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o ideal
-        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
+        for (long unsigned int j = i; j < static_cast<long unsigned int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getAltimetro() < min)
@@ -132,7 +132,7 @@ namespace SimuladorDeVooSimples
     }
 
     // Métodos da classe que estabiliza o avião na velocidade
-    void Aviao::estabilizaVelocidade(int i, float max, float min)
+    void Aviao::estabilizaVelocidade(long unsigned int i, float max, float min)
     {
         setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         int acesso = 0;
@@ -142,7 +142,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o ideal
-        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
+        for (long unsigned int j = i; j < static_cast<long unsigned int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getPitot() < min)
@@ -182,7 +182,7 @@ namespace SimuladorDeVooSimples
     }
 
     // Métodos da classe que estabiliza o avião nos seus momentos
-    void Aviao::estabilizaMomentos(int i, float max, float min)
+    void Aviao::estabilizaMomentos(long unsigned int i, float max, float min)
     {
         setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
         //---------------------------------------------------------------------------------------------------------------------------
@@ -195,7 +195,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do pitch ideal que e 0
-        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
+        for (long unsigned int j = i; j < static_cast<long unsigned int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_pitch() < min)
@@ -254,7 +254,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do roll ideal que e 0
-        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
+        for (long unsigned int j = i; j < static_cast<long unsigned int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_roll() < min)
@@ -315,7 +315,7 @@ namespace SimuladorDeVooSimples
         if (nivel < 0)
             nivel *= -1;
         // Percorre os dados para corrigir para o momento do yaw ideal que e 0
-        for (int j = i; j < static_cast<int>(dadosDoModelo.size()); j++)
+        for (long unsigned int j = i; j < static_cast<long unsigned int>(dadosDoModelo.size()); j++)
         {
             // Se o dados forem menores que o mínimo entra e ajusta
             if (dadosDoModelo[j].getGiroscopio_yaw() < min)
@@ -390,7 +390,7 @@ namespace SimuladorDeVooSimples
              << "My -> Momento yaw" << endl
              << "---------------------" << endl;
         cout << "[i] A V Mp Mr My" << endl;
-        for (int i = 0; i < static_cast<int>(dadosDoModelo.size()); i++)
+        for (long unsigned int i = 0; i < static_cast<long unsigned int>(dadosDoModelo.size()); i++)
         {
             cout << "[" << i << "] " << dadosDoModelo[i].getAltimetro() << " "
                  << dadosDoModelo[i].getPitot() << " "
