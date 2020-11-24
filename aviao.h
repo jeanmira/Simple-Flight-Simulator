@@ -9,15 +9,12 @@
 using namespace std;
 
 /*
-   Classe responsável pelas especificações do avião
- 
-   modelo          =>  Recente a marca ou código do avião
- 
-   dadosDoAviao    =>  Recente a todos os dados do avião como
-                       giroscópio, altímetro e velocidade
- 
-   servos           =>  Todo servo motor tem uma abertura em graus
-                       que possibilita o comando de toda aeronave
+  Classe responsável pelas especificações do avião
+  modelo          =>  Recente a marca ou código do avião
+  dadosDoAviao    =>  Recente a todos os dados do avião como
+                      giroscópio, altímetro e velocidade
+  servos           =>  Todo servo motor tem uma abertura em graus
+                      que possibilita o comando de toda aeronave
 */
 
 namespace SimuladorDeVooSimples
@@ -48,7 +45,7 @@ namespace SimuladorDeVooSimples
         void setServoAcelerador(float);
         void insereDados(Dados<float> temp);
 
-        // Métodos para mudar as variaveis dos Dados
+        // Métodos para mudar as variáveis dos Dados
         void setDadosAltimetro(long unsigned int, float);
         void setDadosPitot(long unsigned int, float);
         void setDadosPitch(long unsigned int, float);
@@ -101,7 +98,7 @@ namespace SimuladorDeVooSimples
         virtual void imprimirEspecificacoes() const; /// Imprime todos os dados do avião aplicando os conceitos de polimorfismo
         void imprimirDadosDados();                   // Imprime todos os dados dos dados
 
-        void setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+        void setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superfície de comando está sem inclinação
     };
 
 } // namespace SimuladorDeVooSimples

@@ -24,7 +24,7 @@ int main()
 
     for (int i = 0; i <= 1270; i++)
     {
-        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
+        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura máxima com máximo de carga
         {
             // Altura(m) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel << i << " "; // Altura
@@ -72,7 +72,7 @@ int main()
     float j = 0;
     for (int i = 0; i <= 1270; i++)
     {
-        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura maxima com máximo de carga
+        if ((i % 5) == 0) //Pega as alturas de 5 em 5 até 1270 que é a altura máxima com máximo de carga
         {
             // Altura(m) velocidade(km/h) pitch(K.N/m) roll(K.N/m) yaw(K.N/m)
             papel2 << 1270 - i << " "; // Altura

@@ -11,7 +11,7 @@ namespace SimuladorDeVooSimples
             return false;
     }
 
-    // Métodos para mudar as variaveis
+    // Métodos para mudar as variáveis
     void Aviao::setModelo(string n_modelo) { this->modelo = n_modelo; }
     void Aviao::setMarca(string n_marca) { this->marca = n_marca; }
     void Aviao::setServoProfundor(float n_servoProfundor) { this->servoProfundor = n_servoProfundor; }
@@ -84,7 +84,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião na altura
     void Aviao::estabilizaAltura(long unsigned int i, float max, float min)
     {
-        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superfície de comando está sem inclinação
         int acesso = 0;
         // Verifica a taxa de variação
         float nivel = (dadosDoModelo[i + 1].getAltimetro() - dadosDoModelo[i].getAltimetro());
@@ -134,7 +134,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião na velocidade
     void Aviao::estabilizaVelocidade(long unsigned int i, float max, float min)
     {
-        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de comando entá sem inclinação
         int acesso = 0;
         // Verifica a taxa de variação
         float nivel = (dadosDoModelo[i + 1].getPitot() - dadosDoModelo[i].getPitot());
@@ -184,7 +184,7 @@ namespace SimuladorDeVooSimples
     // Métodos da classe que estabiliza o avião nos seus momentos
     void Aviao::estabilizaMomentos(long unsigned int i, float max, float min)
     {
-        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+        setServos(); // Verifica se os servos estão na posição inicial (0.0) onde a superficie de comando entá sem inclinação
         //---------------------------------------------------------------------------------------------------------------------------
         // ESTABILIZA O PITCH
         //---------------------------------------------------------------------------------------------------------------------------
@@ -400,7 +400,7 @@ namespace SimuladorDeVooSimples
         }
         cout << endl;
     }
-    // Verifica se os servos estão na posição inicial (0.0) onde a superficie de coamndo enta sem inclinação
+    // Verifica se os servos estão na posição inicial (0.0) onde a superfície de comando está sem inclinação
     void Aviao::setServos()
     {
         if (servoProfundor != 0)

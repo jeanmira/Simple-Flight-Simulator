@@ -41,17 +41,17 @@ void leArquivos(ifstream &arquivo, svs::Aviao &novo)
 int main()
 {
     // Cria e chama o construtor
-    /* 
-   O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares,
-   monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
-   */
+    /*
+  O Cessna 172 Skyhawk é uma aeronave americana de quatro lugares,
+  monomotor, asa alta e asa fixa, fabricada pela Cessna Aircraft Company.
+  */
     svs::Aviao aeronave("Cessna 172 Skyhawk", "Cessna Aircraft Company", 0.0, 0.0, 0.0, 0.0, 0.0); // Cria o avião com o construtor padrão
     aeronave.imprimirEspecificacoes();                                                             // Imprime todos os dados do avião();                                                                 // Imprime as especificações do Avião
 
     svs::Aeromodelo miniAeronave("Albatroz", "Incoaer", "Azul", "Transmissor 6ch", 0.0, 0.0, 0.0, 0.0, 0.0, 1400.55); // Cria um Aeromodelo com o construtor padrão
     miniAeronave.imprimirEspecificacoes();                                                                            // Imprime as especificações do Aeromodelo
 
-    // Verifica se as duas aeronavem são iguais, utilizando do recurso de sobrecarga de operadores
+    // Verifica se as duas aeronaves são iguais, utilizando do recurso de sobrecarga de operadores
     if (aeronave == miniAeronave)
         cout << "A aeronave [1] ("
              << aeronave.getModelo()
@@ -81,7 +81,7 @@ int main()
     leArquivos(arquivoCruzeiro, aeronave);
 
     aeronave.estabilizaAltura(255, 1000, 900);    // Estabiliza a Altura (onde começa a análise, altura padrão, altura mínima )
-    aeronave.estabilizaVelocidade(255, 222, 216); // Estabiliza a Velocidade (onde começa a analise, velocidade maxima, velocidade mínima )
+    aeronave.estabilizaVelocidade(255, 222, 216); // Estabiliza a Velocidade (onde começa a analise, velocidade máxima, velocidade mínima )
     aeronave.estabilizaMomentos(255, 0, 0);       // Estabiliza os Momentos (onde começa a analise, máximo de momento permitido, mínimo de momento permitido)
 
     //Abre os dados de cruzeiro e adiciona no novo avião
