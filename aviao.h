@@ -6,9 +6,8 @@
 #include <vector>
 #include "dados.h"
 
-#define ALTURAMAXIMA 1270
-#define ALTURAMINIMA 0
-#define NIVEL 1
+const int ALTURAMAXIMA = 1270;
+const int ALTURAMINIMA = 0;
 
 using namespace std;
 
