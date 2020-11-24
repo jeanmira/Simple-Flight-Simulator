@@ -73,15 +73,15 @@ namespace SimuladorDeVooSimples
         giroscopio[2] = yaw;
     }
     template <typename T>
-    void Dados<T>::setAltimetro(T altimetro) { this->altimetro = altimetro; } // Set o altimetro recebido dos dados
+    void Dados<T>::setAltimetro(T n_altimetro) { this->altimetro = n_altimetro; } // Set o altimetro recebido dos dados
     template <typename T>
-    void Dados<T>::setPitot(T pitot) { this->pitot = pitot; } // Set o pitot recebido dos dados
+    void Dados<T>::setPitot(T n_pitot) { this->pitot = n_pitot; } // Set o pitot recebido dos dados
     template <typename T>
-    void Dados<T>::setPitch(T pitch) { giroscopio[0] = pitch; } // Método set do pitch do Giroscópio
+    void Dados<T>::setPitch(T n_pitch) { giroscopio[0] = n_pitch; } // Método set do pitch do Giroscópio
     template <typename T>
-    void Dados<T>::setRoll(T roll) { giroscopio[1] = roll; } // Método set do roll do Giroscópio
+    void Dados<T>::setRoll(T n_roll) { giroscopio[1] = n_roll; } // Método set do roll do Giroscópio
     template <typename T>
-    void Dados<T>::setYaw(T yaw) { giroscopio[2] = yaw; } // Método set do yaw do Giroscópio
+    void Dados<T>::setYaw(T n_yaw) { giroscopio[2] = n_yaw; } // Método set do yaw do Giroscópio
 
     template <typename T>
     T Dados<T>::getGiroscopio_pitch() { return giroscopio[0]; } // Retorna o valor de pitch
@@ -96,11 +96,11 @@ namespace SimuladorDeVooSimples
 
     // Construtor que inicializa os parâmetros
     template <typename T>
-    Dados<T>::Dados(T altimetro, T pitot, T pitch, T roll, T yaw)
+    Dados<T>::Dados(T n_altimetro, T n_pitot, T n_pitch, T n_roll, T n_yaw)
     {
-        setAltimetro(altimetro);
-        setPitot(pitot);
-        setGiroscopio(pitch, roll, yaw);
+        setAltimetro(n_altimetro);
+        setPitot(n_pitot);
+        setGiroscopio(n_pitch, n_roll, n_yaw);
     }
 
     // Construtor padrão

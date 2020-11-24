@@ -12,13 +12,13 @@ namespace SimuladorDeVooSimples
     }
 
     // Métodos para mudar as variaveis
-    void Aviao::setModelo(string modelo) { this->modelo = modelo; }
-    void Aviao::setMarca(string marca) { this->marca = marca; }
-    void Aviao::setServoProfundor(float servoProfundor) { this->servoProfundor = servoProfundor; }
-    void Aviao::setServoLeme(float servoLeme) { this->servoLeme = servoLeme; }
-    void Aviao::setServoAileronEs(float servoAileronEs) { this->servoAileronEs = servoAileronEs; }
-    void Aviao::setServoAileronDi(float servoAileronDi) { this->servoAileronDi = servoAileronDi; }
-    void Aviao::setServoAcelerador(float servoAcelerador) { this->servoAcelerador = servoAcelerador; }
+    void Aviao::setModelo(string n_modelo) { this->modelo = n_modelo; }
+    void Aviao::setMarca(string n_marca) { this->marca = n_marca; }
+    void Aviao::setServoProfundor(float n_servoProfundor) { this->servoProfundor = n_servoProfundor; }
+    void Aviao::setServoLeme(float n_servoLeme) { this->servoLeme = n_servoLeme; }
+    void Aviao::setServoAileronEs(float n_servoAileronEs) { this->servoAileronEs = n_servoAileronEs; }
+    void Aviao::setServoAileronDi(float n_servoAileronDi) { this->servoAileronDi = n_servoAileronDi; }
+    void Aviao::setServoAcelerador(float n_servoAcelerador) { this->servoAcelerador = n_servoAcelerador; }
     void Aviao::insereDados(Dados<float> temp) { dadosDoModelo.push_back(temp); }
 
     // Métodos para mudar as variáveis dos Dados
@@ -45,15 +45,15 @@ namespace SimuladorDeVooSimples
     float Aviao::getDadosYaw(int i) { return this->dadosDoModelo[i].getGiroscopio_yaw(); }
 
     // Construtor que inicializa os parâmetros
-    Aviao::Aviao(string modelo, string marca, float servoProfundor, float servoLeme, float servoAileronEs, float servoAileronDi, float servoAcelerador)
+    Aviao::Aviao(string n_modelo, string n_marca, float n_servoProfundor, float n_servoLeme, float n_servoAileronEs, float n_servoAileronDi, float n_servoAcelerador)
     {
-        setModelo(modelo);
-        setMarca(marca);
-        setServoProfundor(servoProfundor);
-        setServoLeme(servoLeme);
-        setServoAileronEs(servoAileronEs);
-        setServoAileronDi(servoAileronDi);
-        setServoAcelerador(servoAcelerador);
+        setModelo(n_modelo);
+        setMarca(n_marca);
+        setServoProfundor(n_servoProfundor);
+        setServoLeme(n_servoLeme);
+        setServoAileronEs(n_servoAileronEs);
+        setServoAileronDi(n_servoAileronDi);
+        setServoAcelerador(n_servoAcelerador);
     }
 
     // Destrutor padrão
