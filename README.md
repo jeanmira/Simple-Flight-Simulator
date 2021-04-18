@@ -1,4 +1,4 @@
-# **Trabalho Final de Programação III**
+# **Trabalho Final de Programação III - Simple Flight Simulator**
 
 [![Generic badge](https://img.shields.io/badge/Status-Finalizado-<red>.svg)](https://shields.io/)
 
